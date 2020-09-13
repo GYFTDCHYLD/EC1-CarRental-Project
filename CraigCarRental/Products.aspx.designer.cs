@@ -8,11 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CraigCarRental {
-	
-	
-	public partial class Products {
-		
+namespace CraigCarRental
+{
+
+
+	public partial class Products
+	{
+
 		protected System.Web.UI.WebControls.Content body;
 		protected global::System.Web.UI.WebControls.TextBox daysRented1;
 		protected global::System.Web.UI.WebControls.TextBox daysRented2;

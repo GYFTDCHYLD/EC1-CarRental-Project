@@ -10,17 +10,21 @@ using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Management.Instrumentation;
 
-namespace CraigCarRental{
-  
-    public partial class Products : System.Web.UI.Page {
+namespace CraigCarRental
+{
+
+    public partial class Products : System.Web.UI.Page
+    {
         DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
         int days = 0;
         readonly CarDatabase db = new CarDatabase();// initialize a database of car
 
-        public void Page_Load(object sender, EventArgs args) {
-            if (Session["CART"] == null) {
+        public void Page_Load(object sender, EventArgs args)
+        {
+            if (Session["CART"] == null)
+            {
                 dt = new DataTable();
                 dt.Columns.Add("productID");
                 dt.Columns.Add("productName");
@@ -32,7 +36,8 @@ namespace CraigCarRental{
         }
 
 
-        public void getDays(object sender, EventArgs args){
+        public void getDays(object sender, EventArgs args)
+        {
             int num = -1;
             if (int.TryParse(daysRented1.Text, out num))
                 days = Convert.ToInt32(daysRented1.Text);
@@ -48,9 +53,11 @@ namespace CraigCarRental{
                 days = Convert.ToInt32(daysRented6.Text);
         }
 
-        public void Clicked(object sender, EventArgs args) {
+        public void Clicked(object sender, EventArgs args)
+        {
 
-            if (days > 0) {
+            if (days > 0)
+            {
                 Button button = (Button)sender;
                 string buttonId = button.ID;// get the "ID" from the pressed button
 
@@ -69,7 +76,9 @@ namespace CraigCarRental{
 
                 Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
 
-            }else{
+            }
+            else
+            {
                 daysRented1.Text = "";
                 daysRented2.Text = "";
                 daysRented3.Text = "";

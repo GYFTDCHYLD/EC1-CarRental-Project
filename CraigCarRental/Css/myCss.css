@@ -49,7 +49,7 @@ h2 {
 .addToCartButton {
     background: black;
     color: white;
-    font-weight:bold;
+    font-weight: bold;
     margin-top: 10px;
     padding: 5px;
     border-radius: 10px 10px 10px 10px;
@@ -83,21 +83,25 @@ h2 {
     border-radius: 50px 50px 50px 50px;
     -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
     box-shadow: 0px 1px 5px black;
-}.Cart:hover {
-    box-shadow: 0px 1px 10px black;
-    border: 2px outset gold;
 }
-    @media (max-width: 576px) {
-        #logo {
+
+    .Cart:hover {
+        box-shadow: 0px 1px 10px black;
+        border: 2px outset gold;
+    }
+
+@media (max-width: 576px) {
+    #logo {
         margin-left: -60px;
     }
 }
+
 .cartLabel {
     margin-top: 30px;
-    font-weight:bold;
+    font-weight: bold;
     float: right;
     height: 1.5em;
-    padding:5px;
+    padding: 5px;
     border-radius: 10px 10px 10px 10px;
 }
 
@@ -114,6 +118,7 @@ h2 {
     -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
     box-shadow: 0px 1px 10px black;
 }
+
 @media (max-width: 576px) {
     .CartTotal {
         max-width: 300px;
@@ -124,10 +129,11 @@ h2 {
 
 .dta {
     font: italic bold Georgia, Serif;
-    text-align:center;
+    text-align: center;
     font-weight: bold;
     margin: 5px;
 }
+
 @media (max-width: 576px) {
     .dta {
         font-size: 10px;
@@ -147,9 +153,10 @@ h2 {
 #nav {
     text-align: center;
 }
+
 @media (max-width: 576px) {
     #nav {
-        font-size:10px;
+        font-size: 10px;
     }
 }
 
@@ -163,7 +170,7 @@ h2 {
     box-shadow: 0px 5px 5px gold;
 }
 
-    .featuredProduct:hover{
+    .featuredProduct:hover {
         cursor: pointer;
         border-radius: 20px 20px 20px 20px;
         -webkit-box-shadow: 0 5px 10px rgba(3,4,6,7.6);
@@ -237,13 +244,13 @@ h2 {
 }
 
 
-.button:hover,.HomeButton:hover,.AboutButton:hover {
-    color: black;
-    background: white;
-    border: 2px outset gold;
-    box-shadow: 0px 0px 3px black;
-    transition: 0.3s all ease-in-out;
-}
+    .button:hover, .HomeButton:hover, .AboutButton:hover {
+        color: black;
+        background: white;
+        border: 2px outset gold;
+        box-shadow: 0px 0px 3px black;
+        transition: 0.3s all ease-in-out;
+    }
 
 
 #container span {
@@ -303,11 +310,14 @@ h2 {
     padding: 20px;
     -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
     box-shadow: 0px 1px 10px black;
-}.tableRow {
+}
+
+.tableRow {
     font: italic bold Georgia, Serif;
     column-rule-color: red;
     text-align: center;
 }
+
 @media (max-width: 576px) {
     .tableRow {
         font-size: 10px;
@@ -316,15 +326,16 @@ h2 {
 
 .GridView a {
     color: blue;
-    text-decoration:none;
+    text-decoration: none;
 }
+
     .GridView a:hover {
         color: red;
     }
 
 .errorDiv {
-    font-weight:bold;
-    color:red;
+    font-weight: bold;
+    color: red;
     text-align: center;
     padding-top: 100px;
     padding-bottom: 400px;
