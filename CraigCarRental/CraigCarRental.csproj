@@ -150,6 +150,9 @@
     <Content Include="Images\Products\BENZ\benz1.png" />
     <Content Include="Images\Products\AUDI\audi2.png" />
     <Content Include="Images\CEO.png" />
+    <Content Include="Images\whatsApp.png" />
+    <Content Include="Images\mail.png" />
+    <Content Include="Images\phone.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
