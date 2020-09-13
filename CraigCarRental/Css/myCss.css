@@ -1,0 +1,211 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+
+body {
+    width: 85%;
+    background: url(../images/bl.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    margin: auto;
+    opacity: 0.90;
+    font: 90%/1.3 times new roman,sans-serif;
+    transition: 0.9s all ease-in-out;
+}
+
+h2 {
+    text-align: center;
+}
+
+#header {
+    width: 100%;
+    transition: 0.9s all ease-in-out;
+    margin-top: 0px;
+    padding: 20px;
+    border-radius: 10px 10px 60px 60px;
+    border: 2px solid white;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+    box-shadow: 0px 1px 10px black;
+    background-image: linear-gradient(to top, #1BDCEF 11%, rgb(255,255,255)46%);
+}
+
+#logo {
+    position: absolute;
+    width: 10%;
+    min-width: 70px;
+    max-width: 90px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border-radius: 10px 60px 60px 100px;
+    border: 2px solid white;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+    box-shadow: 0px 1px 10px black;
+}
+
+#CEO {
+    border-radius: 10px 60px 10px 60px;
+    border: 2px solid white;
+    box-shadow: 0px 1px 5px black;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+#nav {
+    text-align: center;
+}
+
+#container {
+    bottom: 0px;
+}
+
+
+.featuredProduct {
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0px 5px 5px gold;
+}
+
+    .featuredProduct:hover {
+        border-radius: 20px 20px 20px 20px;
+        -webkit-box-shadow: 0 5px 10px rgba(3,4,6,7.6);
+        box-shadow: 0px 5px 5px black;
+    }
+
+.featuredImage {
+    border-radius: 20px 20px 20px 20px;
+}
+
+.productCard {
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 20px 20px 20px 20px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+    box-shadow: 0px 1px 5px black;
+}
+
+.product {
+    padding: 2px;
+    border-radius: 20px 20px 20px 20px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+    box-shadow: 0px 1px 2px black;
+}
+
+    .product:hover {
+        padding: 2px;
+        border-radius: 20px 20px 20px 20px;
+        -webkit-box-shadow: 0 5px 10px rgba(3,4,6,7.6);
+        box-shadow: 0px 1px 5px black;
+    }
+
+label {
+    padding: 5px;
+    width: 100%;
+}
+
+
+.button {
+    padding: 5px;
+    color: black;
+    font-weight: bold;
+    background-image: linear-gradient(to top, #1BDCEF 11%, rgb(255,255,255)46%);
+    border: 2px solid white;
+    box-shadow: 0px 0px 8px black;
+    transition: 0.6s all ease-in-out;
+}
+
+.HomeButton {
+    padding: 5px;
+    color: black;
+    font-weight: bold;
+    background-image: linear-gradient(to top, #1BDCEF 11%, rgb(255,255,255)46%);
+    border: 2px solid white;
+    box-shadow: 0px 0px 8px black;
+    border-radius: 10px 0px 0px 10px;
+    transition: 0.6s all ease-in-out;
+}
+
+.AboutButton {
+    padding: 5px;
+    color: black;
+    font-weight: bold;
+    background-image: linear-gradient(to top, #1BDCEF 11%, rgb(255,255,255)46%);
+    border: 2px solid white;
+    box-shadow: 0px 0px 8px black;
+    border-radius: 0px 10px 10px 0px;
+    transition: 0.6s all ease-in-out;
+}
+
+
+.button:hover {
+    color: black;
+    background: white;
+    border: 1px solid gold;
+    box-shadow: 0px 0px 3px black;
+    transition: 0.3s all ease-in-out;
+}
+
+.HomeButton:hover {
+    color: black;
+    background: white;
+    border: 1px solid gold;
+    box-shadow: 0px 0px 3px black;
+    transition: 0.3s all ease-in-out;
+}
+
+.AboutButton:hover {
+    color: black;
+    background: white;
+    border: 1px solid gold;
+    box-shadow: 0px 0px 3px black;
+    transition: 0.3s all ease-in-out;
+}
+
+
+#container span {
+    text-transform: uppercase;
+    display: block;
+}
+
+.mapouter {
+    position: relative;
+    text-align: left;
+    height: 70%;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    box-shadow: 0px 0px 8px black;
+    border-radius: 10px 10px 10px 10px;
+    transition: 0.9s all ease-in-out;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 100%;
+    width: 100%;
+}
+
+#footer {
+    text-align: center;
+    width: 100%;
+    top: 20px;
+    margin-bottom: 0px;
+    position: relative;
+    transition: 0.9s all ease-in-out;
+    padding: 20px;
+    border-radius: 60px 60px 10px 10px;
+    border: 2px solid white;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+    box-shadow: 0px 1px 10px black;
+    background-image: linear-gradient(to top, #1BDCEF 11%, rgb(250,255,235)46%);
+}
+
+.socialMediaIcon:hover {
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 1px 5px black;
+}

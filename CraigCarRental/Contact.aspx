@@ -6,8 +6,8 @@
         <div class="col-md-12" > 
             <br> <br>
             <a href="tel:18765829083">Phone: (876) 535-8834</a> 
-            <br> <a href="https://api.whatsapp.com/send?phone=18765358834"> WhatsApp</a>
-            <br>Email: craigscarrental@gmail.com
+            <br>
+            <a href="https://api.whatsapp.com/send?phone=18765358834"> WhatsApp</a>
             <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
         </div> 
     </div>
