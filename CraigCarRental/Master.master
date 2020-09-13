@@ -2,20 +2,20 @@
 <!DOCTYPE html>
 <html>
     <head runat="server">
-        <link type = "text.css" href= "Content/bootstrap.css" rel = "stylesheet"/>
-        <link type = "text.css" href= "Content/bootstrap.min.css" rel = "stylesheet"/>
-        <link type = "text.css" href= "Content/bootstrap-grid.css" rel = "stylesheet"/>
-        <link type = "text.css" href= "Content/bootstrap-grid.min.css" rel = "stylesheet"/>
-        <link type = "text.css" href= "Css/myCss.css" rel = "stylesheet"/>
-        <script src = "Scripts/jquery-3.5.1.js"> </script>
-        <script src = "Scripts/jquery-3.5.1.slim.js"> </script>
-        <script src = "Scripts/jquery-3.5.1.slim.min.js"> </script>
-        <script src = "Scripts/popper.js"> </script>
-        <script src = "Scripts/popper.min.js"> </script>
-        <script src = "Scripts/bootstrap.js" > </script>
-        <script src = "Scripts/bootstrap.min.js" > </script>
-        <script src = "Scripts/bootstrap.bundle.js" > </script>
-        <script src = "Scripts/popper.bundle.min.js"> </script>
+        <link type = "text.css" href= "~/Content/bootstrap.css" rel = "stylesheet" asp-append-version="true" />
+        <link type = "text.css" href= "~/Content/bootstrap.min.css" rel = "stylesheet" asp-append-version="true" />
+        <link type = "text.css" href= "~/Content/bootstrap-grid.css" rel = "stylesheet" asp-append-version="true" />
+        <link type = "text.css" href= "~/Content/bootstrap-grid.min.css" rel = "stylesheet" asp-append-version="true" />
+        <link type = "text.css" href= "~/Css/myCss.css" rel = "stylesheet" asp-append-version="true" />
+        <script src = "~/Scripts/jquery-3.5.1.js" asp-append-version="true"> </script>
+        <script src = "~/Scripts/jquery-3.5.1.slim.js" asp-append-version="true"> </script>
+        <script src = "~/Scripts/jquery-3.5.1.slim.min.js" asp-append-version="true"> </script>
+        <script src = "~/Scripts/bootstrap.js" asp-append-version="true"> </script>
+        <script src = "~/Scripts/bootstrap.min.js" asp-append-version="true" > </script>
+        <script src = "~/Scripts/popper.js" asp-append-version="true"> </script>
+        <script src = "~/Scripts/popper.min.js" asp-append-version="true"> </script>
+        <script src = "~/Scripts/bootstrap.bundle.js" asp-append-version="true" > </script>
+        <script src = "~/Scripts/popper.bundle.min.js" asp-append-version="true"> </script>
         
     </head>
     <body>
@@ -38,8 +38,8 @@
                 <div class="jumbotron" id="footer">
                     <font color="black" > 
                         <b>Designed by <font color="red" size ="2">  G&yen;FT'&ETH;CH&yen;L&ETH; </font>&reg;  &copy; 2020 <font color= "black"> </font></b>
-                        <a href="https://www.facebook.com/craig.g.reid.7?fref=ts"> <img id="facebookIcon" alt = "facebook icon" src="Images/fb.png" width ="20em" align ="right" /></a>
-                        <a href="http://twitter.com/prezi_x"> <img id="author" alt = "twitter icon"  src="Images/tw.png" width ="20em" align ="right"/></a>
+                        <a href="https://www.facebook.com/craig.g.reid.7?fref=ts"> <img class="socialMediaIcon" alt = "facebook icon" src="Images/fb.png" width ="20em" align ="right" /></a>
+                        <a href="http://twitter.com/prezi_x"> <img class="socialMediaIcon" alt = "twitter icon"  src="Images/tw.png" width ="20em" align ="right"/></a>
                     </font>
                 </div>
              </div>    

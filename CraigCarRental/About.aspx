@@ -10,7 +10,8 @@
         </div> 
         <div class="col-md-4"> 
             <br><br>
-            Craig's Car Rental was founded in 2020 by CEO Craig Reid, as a means of providing Luxurious rental cars at an affordabe price
+             <img style="width:100%" alt = "logo image" src="Images/logo1.png" width ="20em"  align ="left" />
+            <strong>Craig's Car Rental</strong> was founded in 2020 by CEO <strong>Craig Reid</strong>, as a means of providing Luxurious rental cars at an affordabe price.
         </div> 
         <div class="col-md-4" >
            <div class="mapouter">
