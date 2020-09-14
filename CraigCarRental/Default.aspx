@@ -12,7 +12,7 @@
                     <br>Name: BMW X6
                     <br>Description: 
                     <br>Category: BMW
-                    <br>Unit price: $20,000
+                    <br>Unit price: $12,000
                 </label>
             </div>
         </div> 
@@ -25,7 +25,7 @@
                     <br>Name: Audi TT coupe
                     <br>Description: 
                     <br>Category: Audi
-                    <br>Unit price: $20,000
+                    <br>Unit price: $11,500
                 </label>
             </div>    
         </div> 
