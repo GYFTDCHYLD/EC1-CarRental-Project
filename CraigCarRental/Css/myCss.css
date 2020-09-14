@@ -70,6 +70,7 @@ h2 {
 }
 
     .featuredProduct:hover {
+        cursor: pointer;
         border-radius: 20px 20px 20px 20px;
         -webkit-box-shadow: 0 5px 10px rgba(3,4,6,7.6);
         box-shadow: 0px 5px 5px black;
@@ -95,6 +96,7 @@ h2 {
 }
 
     .product:hover {
+        cursor: pointer;
         padding: 2px;
         border-radius: 20px 20px 20px 20px;
         -webkit-box-shadow: 0 5px 10px rgba(3,4,6,7.6);
@@ -206,6 +208,7 @@ label {
 }
 
 .socialMediaIcon:hover {
+    cursor: pointer;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0px 1px 5px black;
 }
