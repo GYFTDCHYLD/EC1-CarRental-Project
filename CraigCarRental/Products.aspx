@@ -13,7 +13,7 @@
                         <br>Name: BMW X6
                         <br>Description: 
                         <br>Category: BMW
-                        <br>Unit price: $20,000
+                        <br>Unit price: $12,000
                     </label>
                 </div> 
                 <hr>
@@ -24,7 +24,7 @@
                         <br>Name: BMW M3 Sedan
                         <br>Description: 
                         <br>Category: BMW
-                        <br>Unit price: $20,000
+                        <br>Unit price: $9,000
                     </label>
                 </div> 
             </div> 
@@ -38,7 +38,7 @@
                         <br>Name: Mercedes-Benz E-Class
                         <br>Description: 
                         <br>Category: Mercedes-Benz
-                        <br>Unit price: $20,000
+                        <br>Unit price: $11,000
                     </label>
                 </div> 
                 <hr>
@@ -49,7 +49,7 @@
                         <br>Name: Mercedes-Benz GLC Coupe
                         <br>Description: 
                         <br>Category: Mercedes-Benz
-                        <br>Unit price: $20,000
+                        <br>Unit price: $10,500
                     </label>
                 </div> 
             </div> 
@@ -63,7 +63,7 @@
                         <br>Name: Audi TT coupe
                         <br>Description: 
                         <br>Category: Audi
-                        <br>Unit price: $20,000
+                        <br>Unit price: $11,500
                     </label>
                 </div> 
                 <hr>
@@ -74,7 +74,7 @@
                         <br>Name: Audi A5 convertible
                         <br>Description: 
                         <br>Category: Audi
-                        <br>Unit price: $20,000
+                        <br>Unit price: $9,500
                     </label>
                 </div> 
             </div> 
