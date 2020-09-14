@@ -103,10 +103,11 @@ h2 {
         box-shadow: 0px 1px 5px black;
     }
 
-label{ 
-    padding: 5px;
-    width: 100%;
-}
+    .featuredProduct label, .product label {
+        cursor: pointer;
+        padding: 5px;
+        width: 100%;
+    }
 
 
 .button {
