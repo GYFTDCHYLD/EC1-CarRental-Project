@@ -35,7 +35,7 @@
                 
                 <asp:ContentPlaceHolder id="bodyContent" runat="server">  </asp:ContentPlaceHolder>
                 
-                <div class="jumbotron" id="footer">
+                <div class="footer" id="footer">
                     <font color="black" > 
                         <b>Designed by <font color="red" size ="2">  G&yen;FT'&ETH;CH&yen;L&ETH; </font>&reg;  &copy; 2020 <font color= "black"> </font></b>
                         <a href="https://www.facebook.com/craig.g.reid.7?fref=ts"> <img class="socialMediaIcon" alt = "facebook icon" src="Images/fb.png" width ="20em" align ="right" /></a>

@@ -7,7 +7,7 @@
         <div class="col-md-4"> 
             <div class="productCard"> 
                 <div class="product" id="SKU_1245">
-                    <img   alt = ""  width = "100%" src="Images/Products/BMW/bmw1.png" />
+                    <img class="img-fluid"  alt = ""  src="Images/Products/BMW/bmw1.png" />
                     <label>
                         ID: SKU-1245 
                         <br>Name: BMW X6
@@ -18,7 +18,7 @@
                 </div> 
                 <hr>
                 <div class="product" id="SKU_1315">
-                    <img  alt = ""  width = "100%" src="Images/Products/BMW/bmw4.png" />
+                    <img class="img-fluid" alt = "" src="Images/Products/BMW/bmw4.png" />
                     <label>
                         ID: SKU-1315
                         <br>Name: BMW M3 Sedan
@@ -32,7 +32,7 @@
         <div class="col-md-4"> 
             <div class="productCard"> 
                 <div class="product" id="SKU_2265">
-                    <img  alt = "" width = "100%" src="Images/Products/BENZ/benz1.png"  />
+                    <img class="img-fluid" alt = "" src="Images/Products/BENZ/benz1.png"  />
                     <label>
                         ID: SKU-2265
                         <br>Name: Mercedes-Benz E-Class
@@ -43,7 +43,7 @@
                 </div> 
                 <hr>
                 <div class="product" id="SKU_1705">
-                    <img  alt = "" width = "100%" src="Images/Products/BENZ/benz2.png"  />
+                    <img class="img-fluid" alt = ""src="Images/Products/BENZ/benz2.png"  />
                     <label>
                         ID: SKU-1705 
                         <br>Name: Mercedes-Benz GLC Coupe
@@ -57,7 +57,7 @@
         <div class="col-md-4"> 
             <div class="productCard"> 
                 <div class="product" id="SKU_4145">
-                    <img   alt = "" width = "100%" src="Images/Products/AUDI/audi1.png"  />
+                    <img class="img-fluid" alt = "" src="Images/Products/AUDI/audi1.png"  />
                     <label>
                         ID: SKU-4145 
                         <br>Name: Audi TT coupe
@@ -68,7 +68,7 @@
                 </div> 
                 <hr>
                 <div class="product" id="SKU_3261">
-                    <img alt = "" width = "100%" src="Images/Products/AUDI/audi2.png"  />
+                    <img class="img-fluid" alt = "" src="Images/Products/AUDI/audi2.png"  />
                     <label>
                         ID: SKU-3261 
                         <br>Name: Audi A5 convertible

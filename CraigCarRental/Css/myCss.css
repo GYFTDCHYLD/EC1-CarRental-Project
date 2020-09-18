@@ -44,6 +44,11 @@ h2 {
     -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
     box-shadow: 0px 1px 10px black;
 }
+@media (max-width: 576px) {
+    #logo {
+        margin-left: -60px;
+    }
+}
 
 #CEO {
     border-radius: 10px 60px 10px 60px;
@@ -57,6 +62,11 @@ h2 {
 
 #nav {
     text-align: center;
+}
+@media (max-width: 576px) {
+    #nav {
+        font-size:10px;
+    }
 }
 
 #container {
@@ -193,10 +203,11 @@ h2 {
     width: 100%;
 }
 
-#footer {
+.footer {
     text-align: center;
     width: 100%;
     top: 50px;
+    margin-top: 20px;
     margin-bottom: 0px;
     position: relative;
     transition: 0.9s all ease-in-out;

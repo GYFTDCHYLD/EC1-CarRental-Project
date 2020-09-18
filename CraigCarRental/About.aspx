@@ -20,7 +20,6 @@
                 </div>
             </div>
            <h5> Location </h5>
-           <br><br>
         </div> 
     </div>
  </asp:Content>
