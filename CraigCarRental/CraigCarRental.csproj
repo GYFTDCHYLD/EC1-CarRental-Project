@@ -150,6 +150,7 @@
     <Content Include="Images\Products\BENZ\benz1.png" />
     <Content Include="Images\Products\AUDI\audi2.png" />
     <Content Include="Images\CEO.png" />
+    <Content Include="Images\shopingCart.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -185,6 +186,11 @@
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CartItem.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="Rental.cs" />
+    <Compile Include="Cart.cs" />
+    <Compile Include="Car.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />

@@ -34,6 +34,7 @@ h2 {
 
 #logo {
     position: absolute;
+    float: left;
     width: 10%;
     min-width: 70px;
     max-width: 90px;
@@ -44,8 +45,22 @@ h2 {
     -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
     box-shadow: 0px 1px 10px black;
 }
-@media (max-width: 576px) {
-    #logo {
+.Cart {
+    background: url(../Images/shopingCart.png);
+    background-size: cover;
+    float: right;
+    height: 3.5em;
+    min-width: 3.5em;
+    margin-top: 25px;
+    margin-right: -20px;
+    border-radius: 50px 50px 50px 50px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.6);
+    box-shadow: 0px 1px 10px black;
+}.Cart:hover {
+    box-shadow: 0px 1px 5px gold;
+}
+    @media (max-width: 576px) {
+        #logo {
         margin-left: -60px;
     }
 }
@@ -79,7 +94,7 @@ h2 {
     box-shadow: 0px 5px 5px gold;
 }
 
-    .featuredProduct:hover {
+    .featuredProduct:hover{
         cursor: pointer;
         border-radius: 20px 20px 20px 20px;
         -webkit-box-shadow: 0 5px 10px rgba(3,4,6,7.6);

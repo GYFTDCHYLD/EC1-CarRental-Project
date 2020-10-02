@@ -22,14 +22,16 @@
          <form runat = "server">
              <div class="container-fluid" id = "container">
                 <div class="jumbotron" id="header"> 
-                    <img id="logo" alt = "logo image" src="Images/logo1.png" width ="20em"  align ="left" />
-   
+                    <img id="logo" alt = "logo image" src="Images/logo1.png"/>
+                    
                     <div id="nav">
                         <asp:button class = "HomeButton" id = "HomeButton" PostBackUrl = "Default.aspx" runat = "server" Text = "HOME" /> 
                         <asp:button class = "button" id = "ProductsButton" PostBackUrl = "Products.aspx" runat = "server" Text = "PRODUCTS" /> 
                         <asp:button class = "button" id = "ContactButton" PostBackUrl = "Contact.aspx" runat = "server" Text = "CONTACT" /> 
                         <asp:button class = "AboutButton" id = "AboutButton" PostBackUrl = "About.aspx" runat = "server" Text = "ABOUT" /> 
                     </div>
+                    
+                     <asp:button class="Cart" id="Cart" Text = "" runat = "server"   />
                     
                 </div>
                 
