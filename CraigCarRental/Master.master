@@ -16,7 +16,6 @@
         <script src = "~/Scripts/popper.min.js" asp-append-version="true"> </script>
         <script src = "~/Scripts/bootstrap.bundle.js" asp-append-version="true" > </script>
         <script src = "~/Scripts/popper.bundle.min.js" asp-append-version="true"> </script>
-        
     </head>
     <body>
          <form runat = "server">
@@ -31,7 +30,7 @@
                         <asp:button class = "AboutButton" id = "AboutButton" PostBackUrl = "About.aspx" runat = "server" Text = "ABOUT" /> 
                     </div>
                     
-                     <asp:button class="Cart" id="Cart" Text = "" runat = "server"   />
+                     <asp:button  id="ShoppingCart" runat = "server" Text = ""  class="Cart" OnClick="OpenCart"   PostBackUrl = "CartItem.aspx"  />
                     
                 </div>
                 

@@ -11,9 +11,9 @@
 namespace CraigCarRental {
 	
 	
-	public partial class Products {
+	public partial class CartItem {
 		
 		protected System.Web.UI.WebControls.Content body;
-		//protected global::System.Web.UI.WebControls.input daysRented;
+		protected global::System.Web.UI.WebControls.Button buttonInCart;
 	}
 }

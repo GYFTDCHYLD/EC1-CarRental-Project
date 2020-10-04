@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace CraigCarRental {
     public class Car {
         private String ID;
@@ -22,7 +23,14 @@ namespace CraigCarRental {
             this.Price = price;
             this.Category = category;
             this.Description = description;
+        }
 
+        public Car(Car copy) {
+            this.ID = copy.ID;
+            this.Name = copy.Name;
+            this.Price = copy.Price;
+            this.Category = copy.Category;
+            this.Description = copy.Description;
         }
 
 

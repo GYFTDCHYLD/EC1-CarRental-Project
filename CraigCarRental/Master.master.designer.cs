@@ -22,5 +22,7 @@ namespace CraigCarRental {
 		protected System.Web.UI.HtmlControls.HtmlButton AboutButton;
 		
 		protected System.Web.UI.WebControls.ContentPlaceHolder bodyContent;
+
+		protected global::System.Web.UI.WebControls.Button ShoppingCart; 
 	}
 }
