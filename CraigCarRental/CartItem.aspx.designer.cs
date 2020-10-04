@@ -14,13 +14,17 @@ namespace CraigCarRental {
 	public partial class CartItem {
 		
 		protected System.Web.UI.WebControls.Content body;
-		protected global::System.Web.UI.WebControls.Button buttonInCart;
-		protected global::System.Web.UI.WebControls.Label item1;
-		protected global::System.Web.UI.WebControls.Label item2;
-		protected global::System.Web.UI.WebControls.Label item3;
-		protected global::System.Web.UI.WebControls.Label item4;
-		protected global::System.Web.UI.WebControls.Label item5;
-		protected global::System.Web.UI.WebControls.Label item6;
+		
+		protected System.Web.UI.WebControls.GridView GridView1;
+		
+		protected System.Web.UI.WebControls.Label Label1;
+		
+		protected System.Web.UI.WebControls.Label Label2;
+		
+		protected System.Web.UI.WebControls.Label Label3;
+		
+		protected System.Web.UI.WebControls.Label Label4;
 
+		protected global::System.Web.UI.WebControls.Button buttonInCart;
 	}
 }

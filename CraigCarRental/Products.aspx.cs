@@ -13,13 +13,22 @@ using System.Management.Instrumentation;
 namespace CraigCarRental{
   
     public partial class Products : System.Web.UI.Page {
+        DataTable dt;
+        DataRow dr;
         Cart cart = new Cart();
-        readonly CarDatabase db = new CarDatabase();// initialize a database of cars
-
-        public static Cart Instance;
+        readonly CarDatabase db = new CarDatabase();// initialize a database of car
 
         public void Page_Load(object sender, EventArgs args) {
-            
+            if (Session["Data"] == null) {
+                dt = new DataTable();
+                dt.Columns.Add("productID");
+                dt.Columns.Add("productName");
+                dt.Columns.Add("productPrice");
+                dt.Columns.Add("DaysRented");
+                dt.Columns.Add("subTotal");
+                Session["Data"] = dt;
+            }
+
             //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('script running in pag eload');", true);
         }
 
@@ -37,8 +46,20 @@ namespace CraigCarRental{
             }
             cart.AddToCart(rentalData);
             Session["cart"] = cart;
-            
-            
+
+            dt = new DataTable();
+            dt = (DataTable)Session["Data"];
+            dr = dt.NewRow();
+            dr["productID"] = rentalData.getCar().getID();
+            dr["productName"] = rentalData.getCar().getName();
+            dr["productPrice"] = "$" + rentalData.getCar().getPrice().ToString();
+            dr["DaysRented"] = rentalData.getDays();
+            dr["subTotal"] = "$" + (rentalData.getDays() * rentalData.getCar().getPrice());
+            dt.Rows.Add(dr);
+            Session["Data"] = dt;
+           
+
+
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
 
             //button.Text = cart.getCart()[0].getCar().getName();

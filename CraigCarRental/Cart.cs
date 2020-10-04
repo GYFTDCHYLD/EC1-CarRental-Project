@@ -28,8 +28,11 @@ namespace CraigCarRental {
                     break;
                 }
             i++;
-            }
-            
+            }  
+        }
+
+        public void RemoveFromCart() {
+            Rentals.RemoveAt(0);
         }
 
         public List<CartItem> Items { get; internal set; }

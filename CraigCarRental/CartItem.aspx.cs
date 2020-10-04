@@ -12,47 +12,56 @@ using System.Management.Instrumentation;
 
 namespace CraigCarRental{ 
     public partial class CartItem : System.Web.UI.Page {
-        DataTable dt = new DataTable();
+        DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
         float Total;
         String productName, productPrice, daysRented;
         protected void Page_Load(object sender, EventArgs args) {
-            
+            if (Session["Data"] == null) {
+                dt = new DataTable();
+                dt.Columns.Add("productID");
+                dt.Columns.Add("productName");
+                dt.Columns.Add("productPrice");
+                dt.Columns.Add("DaysRented");
+                dt.Columns.Add("subTotal");
+                Session["Data"] = dt;
+            }
             if (Session["cart"] != null) {
-                cart = (Cart)Session["cart"];
-                if (cart.getNumberOfItemInCart() >= 1) {
-                
-
-                    Populate();
-                }
+                FillGrid();
             }
         }
+
+        public void FillGrid() {
+            dt = new DataTable();
+            dt = (DataTable)Session["Data"];
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
+
+
 
         public void Remove(object sender, EventArgs args) {
             Button button = (Button)sender;
             string buttonId = button.ID;// get the "ID" from the pressed button
-            cart.RemoveFromCart(buttonId);
-            Session["cart"] = cart;
+            cart.RemoveFromCart();
+            Session["Data"] = cart;
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
 
-        public void Populate() {
-            DataTable dt = new DataTable();
-            int i = 0;
-            
-            foreach (var Rental in cart.getCart()) {
-                Total += (Rental.getDays() * Rental.getCar().getPrice());
-                buttonInCart.Text = Total.ToString();
-                productName = cart.getCart()[i].getCar().getName();
-                productPrice = cart.getCart()[i].getCar().getPrice().ToString();
-                daysRented = cart.getCart()[i].getDays().ToString();
-
-                i++;
-
-            }
+        public void Remove() {
+            cart.RemoveFromCart();
+            Session["Data"] = cart;
+            Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
 
-       
+
+        public void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs args ) {
+            dt = new DataTable();
+            dt = (DataTable)Session["Data"];
+            dt.Rows[args.RowIndex].Delete();
+            Session["Data"] = dt;
+            FillGrid();
+        }
     }
 }
