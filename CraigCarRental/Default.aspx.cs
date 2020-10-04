@@ -10,41 +10,35 @@ using Microsoft.VisualBasic;
 namespace CraigCarRental {
 
     public partial class Default : System.Web.UI.Page {
-        Cart cart;
-        int days;
+        Cart cart = new Cart();
         readonly CarDatabase db = new CarDatabase();// initialize a database of cars
 
+        public static Cart Instance;
+
         public void Page_Load(object sender, EventArgs args) {
-            if (Session["cart"] != null) {
-                cart = (Cart)Session["cart"];
-            }
-            else {
-                cart = new Cart();
-                Session["cart"] = cart;
-            }
+
+            //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('script running in pag eload');", true);
         }
 
-        public void ClickedDays(object sender, EventArgs args)  {
-            ///days =  daysRented.Valve;
-        }
-
-        public void Clicked(object sender, EventArgs args){
+        public void Clicked(object sender, EventArgs args) {
             Button button = (Button)sender;
             string buttonId = button.ID;// get the "ID" from the pressed button
-            
-            
+
+
+
+            int days = 10;
             Rental rentalData = new Rental(new Customer(), db.selectCar(buttonId), days);
-            button.Text = rentalData.getCar().getName();
 
             if (Session["cart"] != null) {
                 cart = (Cart)Session["cart"];
             }
-            else {
-                cart = new Cart();
-                Session["cart"] = cart;
-            }
             cart.AddToCart(rentalData);
+            Session["cart"] = cart;
+
+
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
+
+            //button.Text = cart.getCart()[0].getCar().getName();
 
 
 

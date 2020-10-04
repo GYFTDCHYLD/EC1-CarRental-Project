@@ -13,7 +13,7 @@ using System.Management.Instrumentation;
 namespace CraigCarRental{
   
     public partial class Products : System.Web.UI.Page {
-        Cart cart;
+        Cart cart = new Cart();
         readonly CarDatabase db = new CarDatabase();// initialize a database of cars
 
         public static Cart Instance;
@@ -30,17 +30,15 @@ namespace CraigCarRental{
 
 
             int days = 10;
-            Rental rentalData = new Rental(new Customer(), db.selectCar(buttonId), days);
-           
+            Rental rentalData = new Rental(new Customer(), db.selectCar(buttonId), days);  
 
             if (Session["cart"] != null) {
                 cart = (Cart)Session["cart"];
             }
-            else {
-                cart = new Cart();
-                Session["cart"] = cart;
-            }
             cart.AddToCart(rentalData);
+            Session["cart"] = cart;
+            
+            
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
 
             //button.Text = cart.getCart()[0].getCar().getName();

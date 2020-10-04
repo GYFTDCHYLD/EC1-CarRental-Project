@@ -27,7 +27,7 @@
                     <br>Description: 
                     <br>Category: Audi
                     <br>Unit price: $11,500
-                    <br><input class = "numberOfDaysRentedInput" id="daysRented" placeholder="Days"  Max="10" Min="1"   type="number" /><asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   /> 
+                    <br><input class = "numberOfDaysRentedInput" id="daysRented" placeholder="Days"  Max="10" Min="1"   type="number" OnClick="addDays"  /><asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   /> 
                 </label>
             </div>    
         </div> 
