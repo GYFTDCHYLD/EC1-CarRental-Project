@@ -40,28 +40,13 @@ namespace CraigCarRental{
         }
 
 
-
-        public void Remove(object sender, EventArgs args) {
-            Button button = (Button)sender;
-            string buttonId = button.ID;// get the "ID" from the pressed button
-            cart.RemoveFromCart();
-            Session["CART"] = cart;
-            Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
-        }
-
-        public void Remove() {
-            cart.RemoveFromCart();
-            Session["CART"] = cart;
-            Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
-        }
-
-
         public void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs args ) {
             dt = new DataTable();
             dt = (DataTable)Session["CART"];
             dt.Rows[args.RowIndex].Delete();
             Session["CART"] = dt;
             FillGrid();
+            Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
     }
 }

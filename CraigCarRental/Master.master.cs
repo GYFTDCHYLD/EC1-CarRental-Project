@@ -13,12 +13,14 @@ namespace CraigCarRental {
 
 
     public partial class Master : System.Web.UI.MasterPage {
+        DataTable dt;
+        DataRow dr;
         public void Page_Load(object sender, EventArgs args) {
-         /*   if (Session["cart"] != null) {
-                Cart cart = (Cart)Session["cart"];
-                if(cart.getNumberOfItemInCart() >= 1)
-                    ShoppingCart.Text = cart.getNumberOfItemInCart().ToString();
-            }*/
+           if (Session["CART"] != null) {
+                dt = (DataTable)Session["CART"];
+                if(dt.Rows.Count > 0)
+                    ShoppingCart.Text = dt.Rows.Count.ToString();
+            }
         }
         public void OpenCart(object sender, EventArgs args) {
 
