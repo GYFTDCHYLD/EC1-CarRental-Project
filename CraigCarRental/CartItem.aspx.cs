@@ -41,7 +41,7 @@ namespace CraigCarRental{
                 grandTotal += Convert.ToDouble(dr["subTotal"]);
             }
             if(grandTotal > 0)
-                buttonInCart.Text = "TOTAL: $" + grandTotal; 
+                cartTotal.Text = "TOTAL: $" + grandTotal; 
         }
 
         public void FillGrid() {

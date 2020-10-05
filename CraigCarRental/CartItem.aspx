@@ -3,9 +3,9 @@
  <asp:Content ID="body" ContentPlaceHolderID="bodyContent" runat="server">
     <h2> ITEM(S) IN CART </h2> 
     <hr>
-    <h1> <asp:button id = "buttonInCart" runat="server" style = "width:100%" /></h1> 
-    <center>  
-    <asp:GridView id="GridView1" style="text-align: center; padding: 20px" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" > 
+    
+    <center><asp:Label class="CartTotal"  id ="cartTotal" runat="server" Text = ""/>  
+    <asp:GridView id="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" > 
         <Columns>
             <asp:TemplateField HeaderText="PRODUCT ID">
                 <ItemTemplate>

@@ -15,6 +15,8 @@ namespace CraigCarRental {
 		
 		protected System.Web.UI.WebControls.Content body;
 		
+		protected System.Web.UI.WebControls.Label cartTotal;
+		
 		protected System.Web.UI.WebControls.GridView GridView1;
 		
 		protected System.Web.UI.WebControls.Label Label1;
@@ -24,7 +26,7 @@ namespace CraigCarRental {
 		protected System.Web.UI.WebControls.Label Label3;
 		
 		protected System.Web.UI.WebControls.Label Label4;
-
-		protected global::System.Web.UI.WebControls.Button buttonInCart;
+		
+		protected System.Web.UI.WebControls.Label Label5;
 	}
 }
