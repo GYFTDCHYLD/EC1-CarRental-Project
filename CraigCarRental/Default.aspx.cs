@@ -31,9 +31,7 @@ namespace CraigCarRental {
                 Session["CART"] = dt;
             }
         }
-        public  void addDays(object sender, EventArgs args) {
-            days = 10;
-        }
+
         public void Clicked(object sender, EventArgs args) {
 
             Button button = (Button)sender;

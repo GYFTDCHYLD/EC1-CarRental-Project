@@ -16,6 +16,7 @@ namespace CraigCarRental{
         DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
+        int days = 1;
         readonly CarDatabase db = new CarDatabase();// initialize a database of car
 
         public void Page_Load(object sender, EventArgs args) {
@@ -35,10 +36,7 @@ namespace CraigCarRental{
         public void Clicked(object sender, EventArgs args) {
             Button button = (Button)sender;
             string buttonId = button.ID;// get the "ID" from the pressed button
-            
-
-
-            int days = 10;
+           
             Rental rentalData = new Rental(new Customer(), db.selectCar(buttonId), days);  
 
 
