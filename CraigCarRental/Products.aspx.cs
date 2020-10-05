@@ -47,9 +47,9 @@ namespace CraigCarRental{
             dr = dt.NewRow();
             dr["productID"] = rentalData.getCar().getID();
             dr["productName"] = rentalData.getCar().getName();
-            dr["productPrice"] = "$" + rentalData.getCar().getPrice().ToString();
+            dr["productPrice"] = rentalData.getCar().getPrice().ToString();
             dr["DaysRented"] = rentalData.getDays();
-            dr["subTotal"] = "$" + (rentalData.getDays() * rentalData.getCar().getPrice());
+            dr["subTotal"] = (rentalData.getDays() * rentalData.getCar().getPrice());
             dt.Rows.Add(dr);
             Session["CART"] = dt;
            

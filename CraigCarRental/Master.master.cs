@@ -20,10 +20,7 @@ namespace CraigCarRental {
                 dt = (DataTable)Session["CART"];
                 if(dt.Rows.Count > 0)
                     ShoppingCart.Text = dt.Rows.Count.ToString();
-            }
-        }
-        public void OpenCart(object sender, EventArgs args) {
-
+           }
         }
     }
 } 

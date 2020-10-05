@@ -9,6 +9,9 @@ using System.Web.UI.WebControls;
 using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Management.Instrumentation;
+using System.Globalization;
+using System.Threading;
+using System.Data.SqlClient;
 
 namespace CraigCarRental{ 
     public partial class CartItem : System.Web.UI.Page {
@@ -16,7 +19,6 @@ namespace CraigCarRental{
         DataRow dr;
         Cart cart = new Cart();
         float Total;
-        String productName, productPrice, daysRented;
         protected void Page_Load(object sender, EventArgs args) {
             if (Session["CART"] == null) {
                 dt = new DataTable();
@@ -29,7 +31,17 @@ namespace CraigCarRental{
             }
             if (Session["CART"] != null) {
                 FillGrid();
+                calculateSum();
             }
+        }
+
+        private void calculateSum(){
+            double grandTotal = 0;
+            foreach (DataRow dr in dt.Rows){
+                grandTotal += Convert.ToDouble(dr["subTotal"]);
+            }
+            if(grandTotal > 0)
+                buttonInCart.Text = "TOTAL: $" + grandTotal; 
         }
 
         public void FillGrid() {

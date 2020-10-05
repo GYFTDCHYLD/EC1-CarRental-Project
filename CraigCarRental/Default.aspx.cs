@@ -17,6 +17,7 @@ namespace CraigCarRental {
         DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
+        int days = 1;
         readonly CarDatabase db = new CarDatabase();// initialize a database of cars
 
         public void Page_Load(object sender, EventArgs args) {
@@ -29,16 +30,18 @@ namespace CraigCarRental {
                 dt.Columns.Add("subTotal");
                 Session["CART"] = dt;
             }
-            //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('script running in pag eload');", true);
         }
-
+        public  void addDays(object sender, EventArgs args) {
+            days = 10;
+        }
         public void Clicked(object sender, EventArgs args) {
+
             Button button = (Button)sender;
             string buttonId = button.ID;// get the "ID" from the pressed button
 
 
 
-            int days = 10;
+            
             Rental rentalData = new Rental(new Customer(), db.selectCar(buttonId), days);
 
             
@@ -48,9 +51,9 @@ namespace CraigCarRental {
             dr = dt.NewRow();
             dr["productID"] = rentalData.getCar().getID();
             dr["productName"] = rentalData.getCar().getName();
-            dr["productPrice"] = "$" + rentalData.getCar().getPrice().ToString();
+            dr["productPrice"] = rentalData.getCar().getPrice().ToString();
             dr["DaysRented"] = rentalData.getDays();
-            dr["subTotal"] = "$" + (rentalData.getDays() * rentalData.getCar().getPrice());
+            dr["subTotal"] = (rentalData.getDays() * rentalData.getCar().getPrice());
             dt.Rows.Add(dr);
             Session["CART"] = dt;
   
