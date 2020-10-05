@@ -18,23 +18,23 @@ namespace CraigCarRental{
         float Total;
         String productName, productPrice, daysRented;
         protected void Page_Load(object sender, EventArgs args) {
-            if (Session["Data"] == null) {
+            if (Session["CART"] == null) {
                 dt = new DataTable();
                 dt.Columns.Add("productID");
                 dt.Columns.Add("productName");
                 dt.Columns.Add("productPrice");
                 dt.Columns.Add("DaysRented");
                 dt.Columns.Add("subTotal");
-                Session["Data"] = dt;
+                Session["CART"] = dt;
             }
-            if (Session["cart"] != null) {
+            if (Session["CART"] != null) {
                 FillGrid();
             }
         }
 
         public void FillGrid() {
             dt = new DataTable();
-            dt = (DataTable)Session["Data"];
+            dt = (DataTable)Session["CART"];
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
@@ -45,22 +45,22 @@ namespace CraigCarRental{
             Button button = (Button)sender;
             string buttonId = button.ID;// get the "ID" from the pressed button
             cart.RemoveFromCart();
-            Session["Data"] = cart;
+            Session["CART"] = cart;
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
 
         public void Remove() {
             cart.RemoveFromCart();
-            Session["Data"] = cart;
+            Session["CART"] = cart;
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
 
 
         public void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs args ) {
             dt = new DataTable();
-            dt = (DataTable)Session["Data"];
+            dt = (DataTable)Session["CART"];
             dt.Rows[args.RowIndex].Delete();
-            Session["Data"] = dt;
+            Session["CART"] = dt;
             FillGrid();
         }
     }

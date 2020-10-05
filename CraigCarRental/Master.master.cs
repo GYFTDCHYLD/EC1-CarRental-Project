@@ -14,11 +14,11 @@ namespace CraigCarRental {
 
     public partial class Master : System.Web.UI.MasterPage {
         public void Page_Load(object sender, EventArgs args) {
-            if (Session["cart"] != null) {
+         /*   if (Session["cart"] != null) {
                 Cart cart = (Cart)Session["cart"];
                 if(cart.getNumberOfItemInCart() >= 1)
                     ShoppingCart.Text = cart.getNumberOfItemInCart().ToString();
-            }
+            }*/
         }
         public void OpenCart(object sender, EventArgs args) {
 

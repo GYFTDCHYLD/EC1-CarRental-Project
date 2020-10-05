@@ -20,14 +20,14 @@ namespace CraigCarRental {
         readonly CarDatabase db = new CarDatabase();// initialize a database of cars
 
         public void Page_Load(object sender, EventArgs args) {
-            if (Session["Data"] == null) {
+            if (Session["CART"] == null) {
                 dt = new DataTable();
                 dt.Columns.Add("productID");
                 dt.Columns.Add("productName");
                 dt.Columns.Add("productPrice");
                 dt.Columns.Add("DaysRented");
                 dt.Columns.Add("subTotal");
-                Session["Data"] = dt;
+                Session["CART"] = dt;
             }
             //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('script running in pag eload');", true);
         }
@@ -41,14 +41,10 @@ namespace CraigCarRental {
             int days = 10;
             Rental rentalData = new Rental(new Customer(), db.selectCar(buttonId), days);
 
-            if (Session["cart"] != null)  {
-                cart = (Cart)Session["cart"];
-            }
-            cart.AddToCart(new Rental());
-            Session["cart"] = cart;
+            
 
             dt = new DataTable();
-            dt = (DataTable)Session["Data"];
+            dt = (DataTable)Session["CART"];
             dr = dt.NewRow();
             dr["productID"] = rentalData.getCar().getID();
             dr["productName"] = rentalData.getCar().getName();
@@ -56,7 +52,7 @@ namespace CraigCarRental {
             dr["DaysRented"] = rentalData.getDays();
             dr["subTotal"] = "$" + (rentalData.getDays() * rentalData.getCar().getPrice());
             dt.Rows.Add(dr);
-            Session["Data"] = dt;
+            Session["CART"] = dt;
   
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
 

@@ -13,7 +13,7 @@ namespace CraigCarRental {
         }*/
 
         void Session_Start(object sender, EventArgs e){
-            Cart cart = new Cart();
+            Cart CART = new Cart();
         }
         
 
