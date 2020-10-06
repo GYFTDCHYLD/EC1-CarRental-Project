@@ -21,6 +21,7 @@ namespace CraigCarRental {
         readonly CarDatabase db = new CarDatabase();// initialize a database of cars
 
         public void Page_Load(object sender, EventArgs args) {
+            TextBox1.Text = DateTime.Today.ToShortDateString() + '.';
             if (Session["CART"] == null) {
                 dt = new DataTable();
                 dt.Columns.Add("productID");
@@ -67,6 +68,10 @@ namespace CraigCarRental {
                 daysRented2.Text = "";
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Enter Number of day(s) before adding item to cart');", true);
             }
+        }
+
+        protected void DateChange(object sender, EventArgs e){
+            TextBox1.Text = Calendar1.SelectedDate.ToShortDateString() + '.';
         }
     }
 }

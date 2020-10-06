@@ -27,6 +27,8 @@
                     <br>Description: 
                     <br>Category: Audi
                     <br>Unit price: $11,500
+                   <!--  <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="DateChange"></asp:Calendar> 
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox> -->
                     <br><asp:TextBox id="daysRented2" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   /> 
                 </label>
             </div>    

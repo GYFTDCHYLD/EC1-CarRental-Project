@@ -342,6 +342,8 @@
     <Content Include="Images\shopingCart.png" />
     <Content Include="Products.aspx" />
     <Content Include="CartItem.aspx" />
+    <Content Include="scripts\jquery.mCustomScrollbar.js" />
+    <Content Include="content\jquery.mCustomScrollbar.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

@@ -16,5 +16,7 @@ namespace CraigCarRental {
 		protected System.Web.UI.WebControls.Content body;
 		protected global::System.Web.UI.WebControls.TextBox daysRented1;
 		protected global::System.Web.UI.WebControls.TextBox daysRented2;
+		protected global::System.Web.UI.WebControls.Calendar Calendar1;
+		protected global::System.Web.UI.WebControls.TextBox TextBox1;
 	}
 }
