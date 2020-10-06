@@ -43,8 +43,7 @@ namespace CraigCarRental {
 
         public void Clicked(object sender, EventArgs args) {
 
-            if (days > 0)
-            {
+            if (days > 0) {
                 Button button = (Button)sender;
                 string buttonId = button.ID;// get the "ID" from the pressed button
 

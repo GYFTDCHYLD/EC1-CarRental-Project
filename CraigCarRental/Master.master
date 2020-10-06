@@ -30,7 +30,8 @@
                         <asp:button class = "AboutButton" id = "AboutButton" PostBackUrl = "About.aspx" runat = "server" Text = "ABOUT" /> 
                     </div>
                     
-                     <asp:button  id="ShoppingCart" runat = "server" Text = ""  class="Cart"   PostBackUrl = "CartItem.aspx"  />
+                     <asp:button  id="ShoppingCart" runat = "server" Text = ""  class="Cart"  OnClick="openCart" />
+                    <asp:Label id="cartLabel" CssClass = "cartLabel"  runat="server" />
                     
                 </div>
                 
