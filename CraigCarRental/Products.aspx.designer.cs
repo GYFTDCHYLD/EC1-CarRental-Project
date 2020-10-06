@@ -14,6 +14,11 @@ namespace CraigCarRental {
 	public partial class Products {
 		
 		protected System.Web.UI.WebControls.Content body;
-		//protected global::System.Web.UI.WebControls.input daysRented;
+		protected global::System.Web.UI.WebControls.TextBox daysRented1;
+		protected global::System.Web.UI.WebControls.TextBox daysRented2;
+		protected global::System.Web.UI.WebControls.TextBox daysRented3;
+		protected global::System.Web.UI.WebControls.TextBox daysRented4;
+		protected global::System.Web.UI.WebControls.TextBox daysRented5;
+		protected global::System.Web.UI.WebControls.TextBox daysRented6;
 	}
 }

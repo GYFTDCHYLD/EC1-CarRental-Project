@@ -14,5 +14,7 @@ namespace CraigCarRental {
 	public partial class Default {
 		
 		protected System.Web.UI.WebControls.Content body;
+		protected global::System.Web.UI.WebControls.TextBox daysRented1;
+		protected global::System.Web.UI.WebControls.TextBox daysRented2;
 	}
 }

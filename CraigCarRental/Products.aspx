@@ -14,7 +14,7 @@
                         <br>Description: 
                         <br>Category: BMW
                         <br>Unit price: $12,000
-                        <br><input class = "numberOfDaysRentedInput" id="daysRented" placeholder="Days"  Max="10" Min="1"   type="number" /> <asp:button class="addToCartButton" id="SKU1245" Text = "ADD TO CART" runat = "server" OnClick="Clicked"    /> 
+                        <br><asp:TextBox id="daysRented1" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /> <asp:button class="addToCartButton" id="SKU1245" Text = "ADD TO CART" runat = "server" OnClick="Clicked"    /> 
                     </label>
                 </div> 
                 <hr>
@@ -26,7 +26,7 @@
                         <br>Description: 
                         <br>Category: BMW
                         <br>Unit price: $9,000
-                        <br> <input class = "numberOfDaysRentedInput" id="daysRented" placeholder="Days"  Max="10" Min="1"   type="number" /><asp:Button class="addToCartButton" ID="SKU1315" Text = "ADD TO CART" runat = "server" OnClick="Clicked"    />
+                        <br><asp:TextBox id="daysRented2" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:Button class="addToCartButton" ID="SKU1315" Text = "ADD TO CART" runat = "server" OnClick="Clicked"    />
                     </label>
                 </div> 
             </div> 
@@ -41,7 +41,7 @@
                         <br>Description: 
                         <br>Category: Mercedes-Benz
                         <br>Unit price: $11,000
-                        <br> <input class = "numberOfDaysRentedInput" id="daysRented" placeholder="Days"  Max="10" Min="1"   type="number" /><asp:button class="addToCartButton" id="SKU2265" Text = "ADD TO CART" runat = "server"  OnClick="Clicked"   />
+                       <br><asp:TextBox id="daysRented3" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU2265" Text = "ADD TO CART" runat = "server"  OnClick="Clicked"   />
                     </label>
                 </div> 
                 <hr>
@@ -53,7 +53,7 @@
                         <br>Description: 
                         <br>Category: Mercedes-Benz
                         <br>Unit price: $10,500
-                        <br> <input class = "numberOfDaysRentedInput" id="daysRented" placeholder="Days"  Max="10" Min="1"   type="number" /><asp:button class="addToCartButton" id="SKU1705" Text = "ADD TO CART" runat = "server"  OnClick="Clicked"   />
+                        <br><asp:TextBox id="daysRented4" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU1705" Text = "ADD TO CART" runat = "server"  OnClick="Clicked"   />
                     </label>
                 </div> 
             </div> 
@@ -68,7 +68,7 @@
                         <br>Description: 
                         <br>Category: Audi
                         <br>Unit price: $11,500
-                        <br> <input class = "numberOfDaysRentedInput" id="daysRented" placeholder="Days"  Max="10" Min="1"   type="number" /><asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server"  OnClick="Clicked"   />
+                        <br><asp:TextBox id="daysRented5" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server"  OnClick="Clicked"   />
                     </label>
                 </div> 
                 <hr>
@@ -80,7 +80,7 @@
                         <br>Description: 
                         <br>Category: Audi
                         <br>Unit price: $9,500
-                        <br> <input class = "numberOfDaysRentedInput" id="daysRented" placeholder="Days"  Max="10" Min="1"   type="number" /><asp:button class="addToCartButton" id="SKU3261" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   />
+                        <br><asp:TextBox id="daysRented6" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU3261" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   />
                     </label>
                 </div> 
             </div> 
