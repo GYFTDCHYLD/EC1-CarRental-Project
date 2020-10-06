@@ -1,9 +1,9 @@
 ﻿<%@ Page Title = "Shoping Cart" Language="C#" MasterPageFile = "~/Master.master"  AutoEventWireup = "true" CodeBehind = "CartItem.aspx.cs" Inherits = "CraigCarRental.CartItem" %>
 
  <asp:Content ID="body" ContentPlaceHolderID="bodyContent" runat="server">
-    <h2> ITEM(S) IN CART </h2> 
+    <h2> SHOPPING CART </h2> 
     <hr>
-    
+ 
     <center><asp:Label class="CartTotal"  id ="cartTotal" runat="server" Text = ""/>  
     <asp:GridView id="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" > 
         <Columns>
@@ -32,9 +32,9 @@
                     <asp:Label class="dta" id ="Label5" runat="server" Text = '<%# Bind("subTotal") %>'></asp:Label> 
                 </ItemTemplate> 
             </asp:TemplateField>
-            <asp:CommandField ShowDeleteButton = "true" />
-                
+            <asp:CommandField ShowDeleteButton = "true" />  
         </Columns>
     </asp:GridView> 
     </center> 
+    <hr><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
  </asp:Content>
