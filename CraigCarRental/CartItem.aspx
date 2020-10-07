@@ -9,7 +9,7 @@
         <Columns>
             <asp:TemplateField HeaderText="PRODUCT ID">
                 <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label1" runat="server" Text = '<%# Bind("productID") %>'></asp:Label> 
+                    <asp:Label class="tableRow" id ="Label1" runat="server" Text = '<%# Bind("productID") %>'></asp:Label>
                 </ItemTemplate> 
             </asp:TemplateField>
             <asp:TemplateField HeaderText="PRODUCT NAME">
