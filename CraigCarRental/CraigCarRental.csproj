@@ -344,6 +344,7 @@
     <Content Include="CartItem.aspx" />
     <Content Include="scripts\jquery.mCustomScrollbar.js" />
     <Content Include="content\jquery.mCustomScrollbar.css" />
+    <Content Include="Error404.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

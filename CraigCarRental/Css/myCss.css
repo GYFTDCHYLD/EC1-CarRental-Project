@@ -321,3 +321,11 @@ h2 {
     .GridView a:hover {
         color: red;
     }
+
+.errorDiv {
+    font-weight:bold;
+    color:red;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 400px;
+}
