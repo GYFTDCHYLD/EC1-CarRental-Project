@@ -9,14 +9,6 @@
                 <li> <a href="tel:18765829083"> <img   alt = ""   width ="20em" src="Images/phone.png" /> (876) 535-8834</a> </li>  
                 <li><a href="https://api.whatsapp.com/send?phone=18765358834"> <img   alt = ""  width ="20em" src="Images/whatsApp.png" /> WhatsApp</a> </li> 
             </ul> 
-            <br> <br>
-            <a href="tel:18765829083"> <img   alt = ""   width ="20em" src="Images/mail.png" /> Email: craigscarrental@gmail.com</a> 
-            <br>
-            <a href="tel:18765829083"> <img   alt = ""   width ="20em" src="Images/phone.png" /> Phone: (876) 535-8834</a> 
-            <br>
-            <a href="https://api.whatsapp.com/send?phone=18765358834"> <img   alt = ""  width ="20em" src="Images/whatsApp.png" /> WhatsApp</a>
-            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
         </div> 
     </div>
  </asp:Content>
- 
