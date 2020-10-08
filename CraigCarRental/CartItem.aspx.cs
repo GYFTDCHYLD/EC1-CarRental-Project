@@ -43,7 +43,7 @@ namespace CraigCarRental{
             if(grandTotal > 0)
                 cartTotal.Text = "GRAND TOTAL: $" + grandTotal;
             else
-                cartTotal.Text = "";
+                Response.Redirect("Products.aspx");//redirect to products if cart is empty
         }
 
         public void FillGrid() {
