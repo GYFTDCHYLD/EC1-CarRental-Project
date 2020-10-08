@@ -11,7 +11,6 @@ using System.Text.Encodings.Web;
 using System.Management.Instrumentation;
 using System.Globalization;
 using System.Threading;
-using System.Data.SqlClient;
 
 namespace CraigCarRental{ 
     public partial class CartItem : System.Web.UI.Page {
