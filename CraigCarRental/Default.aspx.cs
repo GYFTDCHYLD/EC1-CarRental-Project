@@ -9,15 +9,19 @@ using System.Web.UI.WebControls;
 using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Management.Instrumentation;
+using MySql.Data.MySqlClient;
+
 
 
 namespace CraigCarRental {
 
     public partial class Default : System.Web.UI.Page {
+        static MySqlConnection mySqlConnection;
         DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
-        int days = 0;
+        static int days = 0;
+        static Boolean Conected = false;
         readonly CarDatabase db = new CarDatabase();// initialize a database of cars
 
         public void Page_Load(object sender, EventArgs args) {
@@ -31,6 +35,8 @@ namespace CraigCarRental {
                 dt.Columns.Add("subTotal");
                 Session["CART"] = dt;
             }
+
+            Connect("root", "EnterpriseComputing1");
         }
 
         public void getDays(object sender, EventArgs args) { 
@@ -42,6 +48,7 @@ namespace CraigCarRental {
         }
 
         public void Clicked(object sender, EventArgs args) {
+            
 
             if (days > 0) {
                 Button button = (Button)sender;
@@ -71,6 +78,22 @@ namespace CraigCarRental {
 
         protected void DateChange(object sender, EventArgs e){
             TextBox1.Text = Calendar1.SelectedDate.ToShortDateString() + '.';
+        }
+
+
+        public void Connect(string user, string password) {
+            mySqlConnection = new MySqlConnection();
+            
+
+            try {
+                mySqlConnection.ConnectionString = @"server=127.0.0.1;" + @"uid=root;" + @"pwd=EnterpriseComputing1;" + @"database=AppDatabase;";
+                mySqlConnection.Open();
+                mySqlConnection.Close();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Database Connected');", true);
+            }
+            catch (Exception e) {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Database NOT Connected');", true);
+            }
         }
     }
 }
