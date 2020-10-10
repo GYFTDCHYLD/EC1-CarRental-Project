@@ -390,6 +390,7 @@
       <DependentUpon>CartItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="DatabaseManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />

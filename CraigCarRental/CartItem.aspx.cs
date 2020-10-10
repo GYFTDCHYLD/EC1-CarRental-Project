@@ -20,8 +20,6 @@ namespace CraigCarRental{
         DataRow dr;
         Cart cart = new Cart();
 
-        private string ConnectionString;
-
         protected void Page_Load(object sender, EventArgs args) {
             if (Session["CART"] == null) {
                 dt = new DataTable();
@@ -59,34 +57,17 @@ namespace CraigCarRental{
 
         public void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs args ) {
 
-            ConnectionString = @"Server=localhost;Database=AppDatabase;Uid=root;Pwd=EnterpriseComputing1;";
+            DatabaseManager Database = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
 
             dt = new DataTable();
-            dt = (DataTable)Session["CART"];
+            dt = (DataTable)Session["CART"]; 
 
-            DeleteRentalQuery(dt.Rows[args.RowIndex][0].ToString());
+            Database.DeleteRentalQuery(dt.Rows[args.RowIndex][0].ToString());
 
             dt.Rows[args.RowIndex].Delete();
             Session["CART"] = dt;
 
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
-        }
-
-        public void DeleteRentalQuery(string ID) {
-
-            try {
-                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
-                    sqlConnection.Open();
-                    MySqlCommand sqlCmd = new MySqlCommand("RemoveRental", sqlConnection);
-                    sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("_CarID", ID);
-                    sqlCmd.ExecuteNonQuery();
-                }
-
-            }
-            catch (Exception e) {
-
-            }
         }
     }
 }

@@ -19,7 +19,6 @@ namespace CraigCarRental {
         DataRow dr;
         Cart cart = new Cart();
         int days = 0;
-        private string ConnectionString;
 
         public void Page_Load(object sender, EventArgs args) {
             if (Session["CART"] == null) {
@@ -55,11 +54,10 @@ namespace CraigCarRental {
             if (days > 0) {
                 Button button = (Button)sender;
                 string buttonId = button.ID;// get the "ID" from the pressed button
-
-                ConnectionString = @"Server=localhost;Database=AppDatabase;Uid=root;Pwd=EnterpriseComputing1;";
-
-                Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), SelectCarQuery(buttonId), days);
-                RentalQuery(rentalData);
+                DatabaseManager DB = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
+           
+                Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), DB.SelectCarQuery(buttonId), days);
+                DB.RentalQuery(rentalData);
 
                 dt = new DataTable();
                 dt = (DataTable)Session["CART"];
@@ -82,52 +80,6 @@ namespace CraigCarRental {
                 daysRented5.Text = "";
                 daysRented6.Text = "";
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Enter Number of day(s) before adding item to cart');", true);
-            }
-        }
-
-        [DataObjectMethod(DataObjectMethodType.Select)]
-        public Car SelectCarQuery(String ID) {
-
-            Car car = new Car();
-            try {
-                MySqlConnection connection = new MySqlConnection(ConnectionString);
-                MySqlCommand command = new MySqlCommand("SelectCar", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("_CarID", MySqlDbType.String).Value = ID;
-                connection.Open();
-                MySqlDataReader dr = command.ExecuteReader(CommandBehavior.CloseConnection);
-                while (dr.Read()) {
-                    car = new Car(Convert.ToString(dr["CarID"]), Convert.ToString(dr["CarName"]), (float)(dr["Price"]), Convert.ToString(dr["Category"]), Convert.ToString(dr["Discription"]));
-                }
-                dr.Close();
-                return car;
-
-            }catch (Exception e){
-
-            }
-
-            return car;
-        }
-
-        public void RentalQuery(Rental rentalData){ 
-            //string ConnectionString = @"server=127.0.0.1;" + @"uid=root;" + @"pwd=EnterpriseComputing1;" + @"database=AppDatabase;";
-            
-            try{
-                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
-                    sqlConnection.Open();
-                    MySqlCommand sqlCmd = new MySqlCommand("AddRental", sqlConnection);
-                    sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("_CarID", rentalData.getCar().getID());
-                    sqlCmd.Parameters.AddWithValue("_UserID", rentalData.getCustomer().getId());
-                    sqlCmd.Parameters.AddWithValue("_StartDate", DateTime.Today);
-                    sqlCmd.Parameters.AddWithValue("_EndDate", DateTime.Today.AddDays(rentalData.getDays()));
-                    sqlCmd.Parameters.AddWithValue("_Checkout", false);
-                    sqlCmd.ExecuteNonQuery();
-                }
-
-            }
-            catch (Exception e){
-
             }
         }
     }
