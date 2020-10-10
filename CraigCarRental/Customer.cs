@@ -1,39 +1,35 @@
 ﻿using System;
 namespace CraigCarRental {
     
-    public class User{
+    public class Customer{
         private int UserID;
         private String Firstname;
         private String Lastname;
         private String Username;
         private String Password;
-        private String Type;
 
-        public User(){ 
+        public Customer(){
             UserID = 0;
             Firstname = "";
             Lastname = "";
             Username = "";
             Password = "";
-            Type = "";
         }
 
 
 
-        public User(int ID, String Fname, String Lname, String type) {
+        public Customer(int ID, String Fname, String Lname) {
             this.UserID = ID;
             this.Firstname = Fname;
             this.Lastname = Lname;
-            this.Type = type;
         }
 
-        public User(int ID, String Fname, String Lname, String User, String Pwd, String type){
+        public Customer(int ID, String Fname, String Lname, String User, String Pwd){
             this.UserID = ID;
             this.Firstname = Fname;
             this.Lastname = Lname;
             this.Username = User;
             this.Password = Pwd;
-            this.Type = type;
         }
 
         public void setId(int id) {
@@ -74,14 +70,6 @@ namespace CraigCarRental {
 
         public String getPassword() {
             return Password;
-        }
-
-        public void setType(String type) {
-            this.Type = type;
-        }
-
-        public String getType() {
-            return Type;
         }
 
     }
