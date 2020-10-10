@@ -2,26 +2,26 @@
 namespace CraigCarRental{
     public class Rental{
         private Car car;
-        private User user;
+        private Customer customer;
         private int Days;
 
         public Rental() {
 
         }
 
-        public Rental(User usr, Car cr, int days) {
+        public Rental(Customer cus, Car cr, int days) {
             this.car = cr;
-            this.user = usr;
+            this.customer = cus;
             this.Days = days;
         }
 
 
-        public void setCustomer(User usr) {
-            this.user = usr;
+        public void setCustomer(Customer cus) {
+            this.customer = cus;
         }
 
-        public User getCustomer() {
-            return user;
+        public Customer getCustomer() {
+            return customer;
         }
 
         public void setCar(Car cr) {

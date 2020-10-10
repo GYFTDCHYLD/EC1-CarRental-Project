@@ -2,7 +2,6 @@
 
  <asp:Content ID="body" ContentPlaceHolderID="bodyContent" runat="server">
     <h2> SHOPPING CART </h2> 
-     <asp:Label id="deletedId" CssClass = "cartLabel"  runat="server" />
     <hr>
  
     <center><asp:Label class="CartTotal"  id ="cartTotal" runat="server" Text = ""/>  

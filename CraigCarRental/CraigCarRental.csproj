@@ -379,10 +379,11 @@
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="Rental.cs" />
     <Compile Include="Cart.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="CarDatabase.cs" />
     <Compile Include="Microsoft\VisualBasic\Interaction.cs" />
     <Compile Include="CartItem.aspx.cs">
       <DependentUpon>CartItem.aspx</DependentUpon>
