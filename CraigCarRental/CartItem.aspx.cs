@@ -68,7 +68,8 @@ namespace CraigCarRental{
 
             dt.Rows[args.RowIndex].Delete();
             Session["CART"] = dt;
-            FillGrid();
+
+            Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
 
         public void DeleteRentalQuery(string ID) {
