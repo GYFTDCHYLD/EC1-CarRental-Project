@@ -12,14 +12,19 @@ using System.Management.Instrumentation;
 
 namespace CraigCarRental {
 
-
     public partial class Master : System.Web.UI.MasterPage {
+      
         DataTable dt;
         DataRow dr;
+        int UserID = 1;
+        DatabaseManager Database = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
+
         public void Page_Load(object sender, EventArgs args) {
+
             cartLabel.Text = "";
             if (Session["CART"] != null) {
-                dt = (DataTable)Session["CART"];
+                dt = Database.CartQuery(UserID);
+                //dt = (DataTable)Session["CART"];
                 if(dt.Rows.Count > 0)
                     ShoppingCart.Text = dt.Rows.Count.ToString();
            }

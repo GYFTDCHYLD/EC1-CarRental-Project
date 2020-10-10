@@ -83,5 +83,24 @@ namespace CraigCarRental {
 
             }
         }
+
+       
+        public DataTable CartQuery(int ID) { 
+            DataTable table = new DataTable();
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlDataAdapter  sqlData = new MySqlDataAdapter("RetrieveCart", sqlConnection);
+                    sqlData.SelectCommand.Parameters.AddWithValue("_UserID", ID);
+                    sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                   
+                    sqlData.Fill(table);
+                }
+
+            } catch (Exception e) {
+
+            }
+         return table;
+        }
     }
 }

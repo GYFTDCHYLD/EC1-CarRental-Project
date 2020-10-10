@@ -344,6 +344,7 @@
     <Content Include="scripts\jquery.mCustomScrollbar.js" />
     <Content Include="content\jquery.mCustomScrollbar.css" />
     <Content Include="Error404.aspx" />
+    <Content Include="Error500.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

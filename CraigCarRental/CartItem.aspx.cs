@@ -19,6 +19,8 @@ namespace CraigCarRental{
         DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
+        int UserID = 1;
+        DatabaseManager Database = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
 
         protected void Page_Load(object sender, EventArgs args) {
             if (Session["CART"] == null) {
@@ -47,8 +49,8 @@ namespace CraigCarRental{
         }
 
         public void FillGrid() {
-            dt = new DataTable();
-            dt = (DataTable)Session["CART"];
+            dt = Database.CartQuery(UserID);
+            //dt = (DataTable)Session["CART"];
             GridView1.DataSource = dt;
             GridView1.DataBind();
             calculateSum();
@@ -57,15 +59,13 @@ namespace CraigCarRental{
 
         public void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs args ) {
 
-            DatabaseManager Database = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
-
-            dt = new DataTable();
-            dt = (DataTable)Session["CART"]; 
+            dt = Database.CartQuery(UserID);
+            //dt = (DataTable)Session["CART"]; 
 
             Database.DeleteRentalQuery(dt.Rows[args.RowIndex][0].ToString());
 
             dt.Rows[args.RowIndex].Delete();
-            Session["CART"] = dt;
+            //Session["CART"] = dt;
 
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
