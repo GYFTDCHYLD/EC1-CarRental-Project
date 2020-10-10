@@ -16,7 +16,6 @@ using MySql.Data.MySqlClient;
 namespace CraigCarRental {
 
     public partial class Default : System.Web.UI.Page {
-        static MySqlConnection mySqlConnection;
         DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
@@ -36,7 +35,7 @@ namespace CraigCarRental {
                 Session["CART"] = dt;
             }
 
-            Connect("root", "EnterpriseComputing1");
+           
         }
 
         public void getDays(object sender, EventArgs args) { 
@@ -54,7 +53,8 @@ namespace CraigCarRental {
                 Button button = (Button)sender;
                 string buttonId = button.ID;// get the "ID" from the pressed button
 
-                Rental rentalData = new Rental(new Customer(), db.selectCar(buttonId), days);
+                Rental rentalData = new Rental(new Customer(1, "Craig", "Reid"), db.selectCar(buttonId), days);
+                RentalDatabase(rentalData);
 
                 dt = new DataTable();
                 dt = (DataTable)Session["CART"];
@@ -81,18 +81,25 @@ namespace CraigCarRental {
         }
 
 
-        public void Connect(string user, string password) {
-            mySqlConnection = new MySqlConnection();
-            
+        public void RentalDatabase(Rental rentalData) { 
+            //string ConnectionString = @"server=127.0.0.1;" + @"uid=root;" + @"pwd=EnterpriseComputing1;" + @"database=AppDatabase;";
+            string ConnectionString = @"Server=localhost;Database=AppDatabase;Uid=root;Pwd=EnterpriseComputing1;";
 
             try {
-                mySqlConnection.ConnectionString = @"server=127.0.0.1;" + @"uid=root;" + @"pwd=EnterpriseComputing1;" + @"database=AppDatabase;";
-                mySqlConnection.Open();
-                mySqlConnection.Close();
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Database Connected');", true);
-            }
-            catch (Exception e) {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Database NOT Connected');", true);
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)){
+                    sqlConnection.Open();
+                    MySqlCommand sqlCmd = new MySqlCommand("AddRental", sqlConnection);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("_CarID", rentalData.getCar().getID());
+                    sqlCmd.Parameters.AddWithValue("_UserID", rentalData.getCustomer().getId());
+                    sqlCmd.Parameters.AddWithValue("_StartDate", DateTime.Today);
+                    sqlCmd.Parameters.AddWithValue("_EndDate", DateTime.Today.AddDays(rentalData.getDays()));
+                    sqlCmd.Parameters.AddWithValue("_Checkout", false);
+                    sqlCmd.ExecuteNonQuery();
+                }
+
+            }catch(Exception e){
+
             }
         }
     }

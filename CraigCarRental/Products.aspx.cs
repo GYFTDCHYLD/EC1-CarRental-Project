@@ -9,22 +9,19 @@ using System.Web.UI.WebControls;
 using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Management.Instrumentation;
+using MySql.Data.MySqlClient;
 
-namespace CraigCarRental
-{
+namespace CraigCarRental {
 
-    public partial class Products : System.Web.UI.Page
-    {
+    public partial class Products : System.Web.UI.Page {
         DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
         int days = 0;
         readonly CarDatabase db = new CarDatabase();// initialize a database of car
 
-        public void Page_Load(object sender, EventArgs args)
-        {
-            if (Session["CART"] == null)
-            {
+        public void Page_Load(object sender, EventArgs args) {
+            if (Session["CART"] == null) {
                 dt = new DataTable();
                 dt.Columns.Add("productID");
                 dt.Columns.Add("productName");
@@ -36,8 +33,7 @@ namespace CraigCarRental
         }
 
 
-        public void getDays(object sender, EventArgs args)
-        {
+        public void getDays(object sender, EventArgs args) {
             int num = -1;
             if (int.TryParse(daysRented1.Text, out num))
                 days = Convert.ToInt32(daysRented1.Text);
@@ -53,15 +49,14 @@ namespace CraigCarRental
                 days = Convert.ToInt32(daysRented6.Text);
         }
 
-        public void Clicked(object sender, EventArgs args)
-        {
+        public void Clicked(object sender, EventArgs args) {
 
-            if (days > 0)
-            {
+            if (days > 0) {
                 Button button = (Button)sender;
                 string buttonId = button.ID;// get the "ID" from the pressed button
 
-                Rental rentalData = new Rental(new Customer(), db.selectCar(buttonId), days);
+                Rental rentalData = new Rental(new Customer(1, "Craig", "Reid"), db.selectCar(buttonId), days);
+                RentalDatabase(rentalData);
 
                 dt = new DataTable();
                 dt = (DataTable)Session["CART"];
@@ -76,9 +71,7 @@ namespace CraigCarRental
 
                 Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
 
-            }
-            else
-            {
+            }else {
                 daysRented1.Text = "";
                 daysRented2.Text = "";
                 daysRented3.Text = "";
@@ -86,6 +79,29 @@ namespace CraigCarRental
                 daysRented5.Text = "";
                 daysRented6.Text = "";
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Enter Number of day(s) before adding item to cart');", true);
+            }
+        }
+
+        public void RentalDatabase(Rental rentalData){
+            //string ConnectionString = @"server=127.0.0.1;" + @"uid=root;" + @"pwd=EnterpriseComputing1;" + @"database=AppDatabase;";
+            string ConnectionString = @"Server=localhost;Database=AppDatabase;Uid=root;Pwd=EnterpriseComputing1;";
+
+            try{
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlCommand sqlCmd = new MySqlCommand("AddRental", sqlConnection);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("_CarID", rentalData.getCar().getID());
+                    sqlCmd.Parameters.AddWithValue("_UserID", rentalData.getCustomer().getId());
+                    sqlCmd.Parameters.AddWithValue("_StartDate", DateTime.Today);
+                    sqlCmd.Parameters.AddWithValue("_EndDate", DateTime.Today.AddDays(rentalData.getDays()));
+                    sqlCmd.Parameters.AddWithValue("_Checkout", false);
+                    sqlCmd.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception e){
+
             }
         }
     }

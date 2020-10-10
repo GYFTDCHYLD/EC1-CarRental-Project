@@ -16,6 +16,14 @@ namespace CraigCarRental {
             Password = "";
         }
 
+
+
+        public Customer(int ID, String Fname, String Lname) {
+            this.UserID = ID;
+            this.Firstname = Fname;
+            this.Lastname = Lname;
+        }
+
         public Customer(int ID, String Fname, String Lname, String User, String Pwd){
             this.UserID = ID;
             this.Firstname = Fname;
