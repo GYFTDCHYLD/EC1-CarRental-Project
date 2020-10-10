@@ -15,6 +15,8 @@ namespace CraigCarRental {
 		
 		protected System.Web.UI.WebControls.Content body;
 		
+		protected System.Web.UI.WebControls.Label deletedId;
+		
 		protected System.Web.UI.WebControls.Label cartTotal;
 		
 		protected System.Web.UI.WebControls.GridView GridView1;

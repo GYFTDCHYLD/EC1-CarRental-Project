@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Management.Instrumentation;
 using MySql.Data.MySqlClient;
+using System.ComponentModel;
 
 namespace CraigCarRental {
 
@@ -18,7 +19,7 @@ namespace CraigCarRental {
         DataRow dr;
         Cart cart = new Cart();
         int days = 0;
-        readonly CarDatabase db = new CarDatabase();// initialize a database of car
+        private string ConnectionString;
 
         public void Page_Load(object sender, EventArgs args) {
             if (Session["CART"] == null) {
@@ -55,8 +56,10 @@ namespace CraigCarRental {
                 Button button = (Button)sender;
                 string buttonId = button.ID;// get the "ID" from the pressed button
 
-                Rental rentalData = new Rental(new Customer(1, "Craig", "Reid"), db.selectCar(buttonId), days);
-                RentalDatabase(rentalData);
+                ConnectionString = @"Server=localhost;Database=AppDatabase;Uid=root;Pwd=EnterpriseComputing1;";
+
+                Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), SelectCarQuery(buttonId), days);
+                RentalQuery(rentalData);
 
                 dt = new DataTable();
                 dt = (DataTable)Session["CART"];
@@ -82,10 +85,33 @@ namespace CraigCarRental {
             }
         }
 
-        public void RentalDatabase(Rental rentalData){
-            //string ConnectionString = @"server=127.0.0.1;" + @"uid=root;" + @"pwd=EnterpriseComputing1;" + @"database=AppDatabase;";
-            string ConnectionString = @"Server=localhost;Database=AppDatabase;Uid=root;Pwd=EnterpriseComputing1;";
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public Car SelectCarQuery(String ID) {
 
+            Car car = new Car();
+            try {
+                MySqlConnection connection = new MySqlConnection(ConnectionString);
+                MySqlCommand command = new MySqlCommand("SelectCar", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("_CarID", MySqlDbType.String).Value = ID;
+                connection.Open();
+                MySqlDataReader dr = command.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dr.Read()) {
+                    car = new Car(Convert.ToString(dr["CarID"]), Convert.ToString(dr["CarName"]), (float)(dr["Price"]), Convert.ToString(dr["Category"]), Convert.ToString(dr["Discription"]));
+                }
+                dr.Close();
+                return car;
+
+            }catch (Exception e){
+
+            }
+
+            return car;
+        }
+
+        public void RentalQuery(Rental rentalData){ 
+            //string ConnectionString = @"server=127.0.0.1;" + @"uid=root;" + @"pwd=EnterpriseComputing1;" + @"database=AppDatabase;";
+            
             try{
                 using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
                     sqlConnection.Open();
