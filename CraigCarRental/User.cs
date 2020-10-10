@@ -16,6 +16,7 @@ namespace CraigCarRental {
             Username = "";
             Password = "";
             Type = "";
+
         }
 
 

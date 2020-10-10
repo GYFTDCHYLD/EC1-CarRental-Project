@@ -379,7 +379,6 @@
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
     <Compile Include="Rental.cs" />
     <Compile Include="Cart.cs" />
     <Compile Include="Car.cs" />
