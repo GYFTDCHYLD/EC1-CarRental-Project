@@ -1,7 +1,8 @@
 ﻿using System;
+
 namespace CraigCarRental {
-    
-    public class User{
+
+    public class User {
         private int UserID;
         private String Firstname;
         private String Lastname;
@@ -9,16 +10,14 @@ namespace CraigCarRental {
         private String Password;
         private String Type;
 
-        public User(){ 
+        public User() {
             UserID = 0;
             Firstname = "";
             Lastname = "";
             Username = "";
             Password = "";
             Type = "";
-
         }
-
 
 
         public User(int ID, String Fname, String Lname, String type) {
@@ -36,6 +35,8 @@ namespace CraigCarRental {
             this.Password = Pwd;
             this.Type = type;
         }
+
+
 
         public void setId(int id) {
             this.UserID = id;
@@ -84,6 +85,5 @@ namespace CraigCarRental {
         public String getType() {
             return Type;
         }
-
     }
 }
