@@ -23,7 +23,7 @@ namespace CraigCarRental {
 		
 		protected System.Web.UI.WebControls.ContentPlaceHolder bodyContent;
 
-		protected global::System.Web.UI.WebControls.Button ShoppingCart;
+		public global::System.Web.UI.WebControls.Button ShoppingCart;
 
 		protected global::System.Web.UI.WebControls.Label cartLabel;
 	}

@@ -84,8 +84,7 @@ namespace CraigCarRental{
                 }
 
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
 
             }
         }
