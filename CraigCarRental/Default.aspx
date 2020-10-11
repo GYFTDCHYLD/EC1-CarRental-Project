@@ -13,8 +13,13 @@
                     <br>Description: 
                     <br>Category: BMW
                     <br>Unit price: $12,000
-                    <br><asp:TextBox id="daysRented1" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU1245" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   />
+                    <br>
                 </label>
+                <p>
+                    <asp:TextBox ID="StartDate1" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                    <asp:TextBox ID="EndDate1" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                    <asp:button class="addToCartButton" id="SKU1245" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   />
+                </p><br>
             </div>
         </div> 
         <div class="col-md-6"> 
@@ -27,10 +32,12 @@
                     <br>Description: 
                     <br>Category: Audi
                     <br>Unit price: $11,500
-                   <!--  <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="DateChange"></asp:Calendar> 
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox> -->
-                    <br><asp:TextBox id="daysRented2" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   /> 
                 </label>
+                <p>
+                    <asp:TextBox ID="StartDate2" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate"></asp:TextBox>
+                    <asp:TextBox ID="EndDate2" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                    <asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server" OnClick="Clicked" />
+                </p><br>
             </div>    
         </div> 
     </div>

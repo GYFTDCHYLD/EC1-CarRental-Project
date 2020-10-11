@@ -17,7 +17,6 @@ using System.ComponentModel;
 namespace CraigCarRental{ 
     public partial class CartItem : System.Web.UI.Page {
         DataTable dt;
-        DataRow dr;
         Cart cart = new Cart();
         int UserID = 1;
         DatabaseManager Database = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class

@@ -18,9 +18,9 @@ namespace CraigCarRental {
         DataTable dt;
         DataRow dr;
         static int days = 0;
+        DateTime StartDate, EndDate;
 
         public void Page_Load(object sender, EventArgs args) {
-            TextBox1.Text = DateTime.Today.ToShortDateString() + '.';
             if (Session["CART"] == null) {
                 dt = new DataTable();
                 dt.Columns.Add("productID");
@@ -30,16 +30,18 @@ namespace CraigCarRental {
                 dt.Columns.Add("subTotal");
                 Session["CART"] = dt;
             }
-
-           
         }
 
-        public void getDays(object sender, EventArgs args) { 
-            int num = -1;
-            if(int.TryParse(daysRented1.Text, out num))
-                days = Convert.ToInt32(daysRented1.Text);
-            else if(int.TryParse(daysRented2.Text, out num))
-                days = Convert.ToInt32(daysRented2.Text);
+       
+        public void ProcessDate(object sender, EventArgs args) {
+            if ((StartDate1.Text != "") && (EndDate1.Text != "")) {
+                StartDate = DateTime.ParseExact(StartDate1.Text, "dd/MM/yyyy", null);
+                EndDate = DateTime.ParseExact(EndDate1.Text, "dd/MM/yyyy", null);
+            } else if ((StartDate2.Text != "") && (EndDate2.Text != "")) {
+                StartDate = DateTime.ParseExact(StartDate2.Text, "dd/MM/yyyy", null);
+                EndDate = DateTime.ParseExact(EndDate2.Text, "dd/MM/yyyy", null);
+            }
+            days = Int32.Parse((EndDate - StartDate).TotalDays.ToString());
         }
 
         public void Clicked(object sender, EventArgs args) {
@@ -51,31 +53,14 @@ namespace CraigCarRental {
 
                 DatabaseManager DB = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
 
-                Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), DB.SelectCarQuery(buttonId), days);
+                Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), DB.SelectCarQuery(buttonId), StartDate, EndDate);
                 DB.RentalQuery(rentalData);
-
-                dt = new DataTable();
-                dt = (DataTable)Session["CART"];
-                dr = dt.NewRow();
-                dr["productID"] = rentalData.getCar().getID();
-                dr["productName"] = rentalData.getCar().getName();
-                dr["productPrice"] = rentalData.getCar().getPrice().ToString();
-                dr["DaysRented"] = rentalData.getDays();
-                dr["subTotal"] = (rentalData.getDays() * rentalData.getCar().getPrice());
-                dt.Rows.Add(dr);
-                Session["CART"] = dt;
 
                 Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
 
-            }else{
-                daysRented1.Text = "";
-                daysRented2.Text = "";
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Enter Number of day(s) before adding item to cart');", true);
+            }else {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Enter Start and End Date before adding item to cart');", true);
             }
-        }
-
-        protected void DateChange(object sender, EventArgs e){
-            TextBox1.Text = Calendar1.SelectedDate.ToShortDateString() + '.';
         }
     }
 }

@@ -40,7 +40,7 @@ namespace CraigCarRental {
                 dr.Close();
                 return car;
 
-            }catch (Exception e) {
+            }catch (Exception) {
 
             }
 
@@ -57,13 +57,15 @@ namespace CraigCarRental {
                     sqlCmd.CommandType = CommandType.StoredProcedure;
                     sqlCmd.Parameters.AddWithValue("_CarID", rentalData.getCar().getID());
                     sqlCmd.Parameters.AddWithValue("_UserID", rentalData.getCustomer().getId());
-                    sqlCmd.Parameters.AddWithValue("_StartDate", DateTime.Today);
-                    sqlCmd.Parameters.AddWithValue("_EndDate", DateTime.Today.AddDays(rentalData.getDays()));
+                    //sqlCmd.Parameters.AddWithValue("_StartDate", DateTime.Today);
+                    // sqlCmd.Parameters.AddWithValue("_EndDate", DateTime.Today.AddDays(rentalData.getDays()));
+                    sqlCmd.Parameters.AddWithValue("_StartDate", rentalData.getStartDate());
+                    sqlCmd.Parameters.AddWithValue("_EndDate", rentalData.getEndDate());
                     sqlCmd.Parameters.AddWithValue("_Checkout", false);
                     sqlCmd.ExecuteNonQuery();
                 }
 
-            } catch (Exception e) {
+            } catch (Exception) {
 
             }
         }
@@ -79,7 +81,7 @@ namespace CraigCarRental {
                     sqlCmd.ExecuteNonQuery();
                 }
 
-            } catch (Exception e) {
+            } catch (Exception) {
 
             }
         }
@@ -97,7 +99,7 @@ namespace CraigCarRental {
                     sqlData.Fill(table);
                 }
 
-            } catch (Exception e) {
+            } catch (Exception) {
 
             }
          return table;

@@ -16,11 +16,17 @@ namespace CraigCarRental
 	{
 
 		protected System.Web.UI.WebControls.Content body;
-		protected global::System.Web.UI.WebControls.TextBox daysRented1;
-		protected global::System.Web.UI.WebControls.TextBox daysRented2;
-		protected global::System.Web.UI.WebControls.TextBox daysRented3;
-		protected global::System.Web.UI.WebControls.TextBox daysRented4;
-		protected global::System.Web.UI.WebControls.TextBox daysRented5;
-		protected global::System.Web.UI.WebControls.TextBox daysRented6;
+		protected global::System.Web.UI.WebControls.TextBox StartDate1;
+		protected global::System.Web.UI.WebControls.TextBox StartDate2;
+		protected global::System.Web.UI.WebControls.TextBox StartDate3;
+		protected global::System.Web.UI.WebControls.TextBox StartDate4;
+		protected global::System.Web.UI.WebControls.TextBox StartDate5;
+		protected global::System.Web.UI.WebControls.TextBox StartDate6;
+		protected global::System.Web.UI.WebControls.TextBox EndDate1;
+		protected global::System.Web.UI.WebControls.TextBox EndDate2;
+		protected global::System.Web.UI.WebControls.TextBox EndDate3;
+		protected global::System.Web.UI.WebControls.TextBox EndDate4;
+		protected global::System.Web.UI.WebControls.TextBox EndDate5;
+		protected global::System.Web.UI.WebControls.TextBox EndDate6;
 	}
 }

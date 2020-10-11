@@ -345,6 +345,9 @@
     <Content Include="content\jquery.mCustomScrollbar.css" />
     <Content Include="Error404.aspx" />
     <Content Include="Error500.aspx" />
+    <Content Include="Scripts\myScript.js" />
+    <Content Include="Css\datePicker.css" />
+    <Content Include="scripts\datePicker.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

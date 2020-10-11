@@ -15,7 +15,6 @@ namespace CraigCarRental {
     public partial class Master : System.Web.UI.MasterPage {
       
         DataTable dt;
-        DataRow dr;
         int UserID = 1;
         DatabaseManager Database = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
 

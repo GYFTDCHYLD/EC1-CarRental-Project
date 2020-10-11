@@ -18,7 +18,8 @@ namespace CraigCarRental {
         DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
-        int days = 0;
+        static int days = 0;
+        DateTime StartDate, EndDate;
 
         public void Page_Load(object sender, EventArgs args) {
             if (Session["CART"] == null) {
@@ -32,22 +33,41 @@ namespace CraigCarRental {
             }
         }
 
+        public void ProcessDate(object sender, EventArgs args) {
+            if ((StartDate1.Text != "") && (EndDate1.Text != ""))
+            {
+                StartDate = DateTime.ParseExact(StartDate1.Text, "dd/MM/yyyy", null);
+                EndDate = DateTime.ParseExact(EndDate1.Text, "dd/MM/yyyy", null);
+            }
+            else if ((StartDate2.Text != "") && (EndDate2.Text != ""))
+            {
+                StartDate = DateTime.ParseExact(StartDate2.Text, "dd/MM/yyyy", null);
+                EndDate = DateTime.ParseExact(EndDate2.Text, "dd/MM/yyyy", null);
+            }
+            else if ((StartDate3.Text != "") && (EndDate3.Text != ""))
+            {
+                StartDate = DateTime.ParseExact(StartDate3.Text, "dd/MM/yyyy", null);
+                EndDate = DateTime.ParseExact(EndDate3.Text, "dd/MM/yyyy", null);
+            }
+            else if ((StartDate4.Text != "") && (EndDate4.Text != ""))
+            {
+                StartDate = DateTime.ParseExact(StartDate4.Text, "dd/MM/yyyy", null);
+                EndDate = DateTime.ParseExact(EndDate4.Text, "dd/MM/yyyy", null);
+            }
+            else if ((StartDate5.Text != "") && (EndDate5.Text != ""))
+            {
+                StartDate = DateTime.ParseExact(StartDate5.Text, "dd/MM/yyyy", null);
+                EndDate = DateTime.ParseExact(EndDate5.Text, "dd/MM/yyyy", null);
+            }
+            else if ((StartDate6.Text != "") && (EndDate6.Text != ""))
+            {
+                StartDate = DateTime.ParseExact(StartDate6.Text, "dd/MM/yyyy", null);
+                EndDate = DateTime.ParseExact(EndDate6.Text, "dd/MM/yyyy", null);
+            }
 
-        public void getDays(object sender, EventArgs args) {
-            int num = -1;
-            if (int.TryParse(daysRented1.Text, out num))
-                days = Convert.ToInt32(daysRented1.Text);
-            else if (int.TryParse(daysRented2.Text, out num))
-                days = Convert.ToInt32(daysRented2.Text);
-            else if (int.TryParse(daysRented3.Text, out num))
-                days = Convert.ToInt32(daysRented3.Text);
-            else if (int.TryParse(daysRented4.Text, out num))
-                days = Convert.ToInt32(daysRented4.Text);
-            else if (int.TryParse(daysRented5.Text, out num))
-                days = Convert.ToInt32(daysRented5.Text);
-            else if (int.TryParse(daysRented6.Text, out num))
-                days = Convert.ToInt32(daysRented6.Text);
+            days = Int32.Parse((EndDate - StartDate).TotalDays.ToString());
         }
+
 
         public void Clicked(object sender, EventArgs args) {
 
@@ -55,31 +75,14 @@ namespace CraigCarRental {
                 Button button = (Button)sender;
                 string buttonId = button.ID;// get the "ID" from the pressed button
                 DatabaseManager DB = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
-           
-                Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), DB.SelectCarQuery(buttonId), days);
-                DB.RentalQuery(rentalData);
 
-                dt = new DataTable();
-                dt = (DataTable)Session["CART"];
-                dr = dt.NewRow();
-                dr["productID"] = rentalData.getCar().getID();
-                dr["productName"] = rentalData.getCar().getName();
-                dr["productPrice"] = rentalData.getCar().getPrice().ToString();
-                dr["DaysRented"] = rentalData.getDays();
-                dr["subTotal"] = (rentalData.getDays() * rentalData.getCar().getPrice());
-                dt.Rows.Add(dr);
-                Session["CART"] = dt;
+                Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), DB.SelectCarQuery(buttonId), StartDate, EndDate);
+                DB.RentalQuery(rentalData);
 
                 Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
 
             }else {
-                daysRented1.Text = "";
-                daysRented2.Text = "";
-                daysRented3.Text = "";
-                daysRented4.Text = "";
-                daysRented5.Text = "";
-                daysRented6.Text = "";
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Enter Number of day(s) before adding item to cart');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Enter Start and End Date before adding item to cart');", true);
             }
         }
     }

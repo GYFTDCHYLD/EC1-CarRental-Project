@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
     <head runat="server">
-        <link type = "text.css" href= "~/Content/bootstrap.css" rel = "stylesheet" asp-append-version="true" />
-        <link type = "text.css" href= "~/Content/bootstrap.min.css" rel = "stylesheet" asp-append-version="true" />
-        <link type = "text.css" href= "~/Content/bootstrap-grid.css" rel = "stylesheet" asp-append-version="true" />
-        <link type = "text.css" href= "~/Content/bootstrap-grid.min.css" rel = "stylesheet" asp-append-version="true" />
-        <link type = "text.css" href= "~/Css/myCss.css" rel = "stylesheet" asp-append-version="true" />
+        <link type = "text/css" href= "~/Content/bootstrap.css" rel = "stylesheet" asp-append-version="true" />
+        <link type = "text/css" href= "~/Content/bootstrap.min.css" rel = "stylesheet" asp-append-version="true" />
+        <link type = "text/css" href= "~/Content/bootstrap-grid.css" rel = "stylesheet" asp-append-version="true" />
+        <link type = "text/css" href= "~/Content/bootstrap-grid.min.css" rel = "stylesheet" asp-append-version="true" />
+        <link type = "text/css" href= "~/Css/myCss.css" rel = "stylesheet" asp-append-version="true" />
         <script src = "~/Scripts/jquery-3.5.1.js" asp-append-version="true"> </script>
         <script src = "~/Scripts/jquery-3.5.1.slim.js" asp-append-version="true"> </script>
         <script src = "~/Scripts/jquery-3.5.1.slim.min.js" asp-append-version="true"> </script>
@@ -16,6 +16,13 @@
         <script src = "~/Scripts/popper.min.js" asp-append-version="true"> </script>
         <script src = "~/Scripts/bootstrap.bundle.js" asp-append-version="true" > </script>
         <script src = "~/Scripts/popper.bundle.min.js" asp-append-version="true"> </script>
+        <script src = "~/scripts/myScript.js" asp-append-version="true"> </script>
+        
+        <!-- Bootstrap DatePicker -->
+        <link type = "text/css" href= "~/Css/datePicker.css" rel = "stylesheet" asp-append-version="true" />
+        <script src = "~/scripts/datePicker.js" asp-append-version="true"> </script>
+        <!-- Bootstrap DatePicker -->
+         
     </head>
     <body>
          <form runat = "server">

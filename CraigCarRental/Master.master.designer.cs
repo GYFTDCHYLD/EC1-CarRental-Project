@@ -8,19 +8,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CraigCarRental {
-	
-	
-	public partial class Master {
-		
+namespace CraigCarRental
+{
+
+
+	public partial class Master
+	{
+
 		protected System.Web.UI.HtmlControls.HtmlButton HomeButton;
-		
+
 		protected System.Web.UI.HtmlControls.HtmlButton ProductsButton;
-		
+
 		protected System.Web.UI.HtmlControls.HtmlButton ContactButton;
-		
+
 		protected System.Web.UI.HtmlControls.HtmlButton AboutButton;
-		
+
 		protected System.Web.UI.WebControls.ContentPlaceHolder bodyContent;
 
 		public global::System.Web.UI.WebControls.Button ShoppingCart;

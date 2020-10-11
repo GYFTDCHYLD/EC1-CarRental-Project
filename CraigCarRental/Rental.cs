@@ -3,16 +3,18 @@ namespace CraigCarRental{
     public class Rental{
         private Car car;
         private User user;
-        private int Days;
+        private DateTime startDate;
+        private DateTime endDate;
 
         public Rental() {
 
         }
 
-        public Rental(User usr, Car cr, int days) {
+        public Rental(User usr, Car cr, DateTime start, DateTime end) {
             this.car = cr;
             this.user = usr;
-            this.Days = days;
+            this.startDate = start;
+            this.endDate = end;
         }
 
 
@@ -32,12 +34,20 @@ namespace CraigCarRental{
             return car;
         }
 
-        public void setDays(int days) {
-            this.Days = days; 
+        public void setStartDate(DateTime start) {
+            this.startDate = start; 
         }
 
-        public int getDays() {
-            return Days;
+        public DateTime getStartDate() {
+            return startDate;
+        }
+
+        public void setVndDate(DateTime end) {
+            this.endDate = end;
+        }
+
+        public DateTime getEndDate() {
+            return endDate;
         }
     }
 }

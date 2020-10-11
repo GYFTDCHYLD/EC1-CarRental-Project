@@ -14,8 +14,12 @@
                         <br>Description: 
                         <br>Category: BMW
                         <br>Unit price: $12,000
-                        <br><asp:TextBox id="daysRented1" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /> <asp:button class="addToCartButton" id="SKU1245" Text = "ADD TO CART" runat = "server" OnClick="Clicked"    /> 
                     </label>
+                    <p>
+                        <asp:TextBox ID="StartDate1" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                        <asp:TextBox ID="EndDate1" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                        <asp:button class="addToCartButton" id="SKU1245" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   />
+                    </p><br>
                 </div> 
                 <hr>
                 <div class="product" id="SKU_1315">
@@ -26,8 +30,12 @@
                         <br>Description: 
                         <br>Category: BMW
                         <br>Unit price: $9,000
-                        <br><asp:TextBox id="daysRented2" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:Button class="addToCartButton" ID="SKU1315" Text = "ADD TO CART" runat = "server" OnClick="Clicked"    />
                     </label>
+                    <p>
+                        <asp:TextBox ID="StartDate2" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate"></asp:TextBox>
+                        <asp:TextBox ID="EndDate2" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                        <asp:button class="addToCartButton" id="SKU1315" Text = "ADD TO CART" runat = "server" OnClick="Clicked" />
+                    </p><br>
                 </div> 
             </div> 
         </div> 
@@ -41,8 +49,12 @@
                         <br>Description: 
                         <br>Category: Mercedes-Benz
                         <br>Unit price: $11,000
-                       <br><asp:TextBox id="daysRented3" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU2265" Text = "ADD TO CART" runat = "server"  OnClick="Clicked"   />
                     </label>
+                    <p>
+                        <asp:TextBox ID="StartDate3" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate"></asp:TextBox>
+                        <asp:TextBox ID="EndDate3" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                        <asp:button class="addToCartButton" id="SKU2265" Text = "ADD TO CART" runat = "server" OnClick="Clicked" />
+                    </p><br>
                 </div> 
                 <hr>
                 <div class="product" id="SKU_1705">
@@ -53,8 +65,12 @@
                         <br>Description: 
                         <br>Category: Mercedes-Benz
                         <br>Unit price: $10,500
-                        <br><asp:TextBox id="daysRented4" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU1705" Text = "ADD TO CART" runat = "server"  OnClick="Clicked"   />
                     </label>
+                    <p>
+                        <asp:TextBox ID="StartDate4" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate"></asp:TextBox>
+                        <asp:TextBox ID="EndDate4" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                        <asp:button class="addToCartButton" id="SKU1705" Text = "ADD TO CART" runat = "server" OnClick="Clicked" />
+                    </p><br>
                 </div> 
             </div> 
         </div> 
@@ -68,8 +84,12 @@
                         <br>Description: 
                         <br>Category: Audi
                         <br>Unit price: $11,500
-                        <br><asp:TextBox id="daysRented5" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server"  OnClick="Clicked"   />
                     </label>
+                    <p>
+                        <asp:TextBox ID="StartDate5" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate"></asp:TextBox>
+                        <asp:TextBox ID="EndDate5" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                        <asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server" OnClick="Clicked" />
+                    </p><br>
                 </div> 
                 <hr>
                 <div class="product" id="SKU_3261">
@@ -80,8 +100,12 @@
                         <br>Description: 
                         <br>Category: Audi
                         <br>Unit price: $9,500
-                        <br><asp:TextBox id="daysRented6" placeholder="Enter number of days"  runat="server" OnTextChanged="getDays" /><asp:button class="addToCartButton" id="SKU3261" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   />
                     </label>
+                    <p>
+                        <asp:TextBox ID="StartDate6" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate"></asp:TextBox>
+                        <asp:TextBox ID="EndDate6" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                        <asp:button class="addToCartButton" id="SKU3261" Text = "ADD TO CART" runat = "server" OnClick="Clicked" />
+                    </p><br>
                 </div> 
             </div> 
         </div> 
