@@ -1,41 +1,36 @@
 ﻿using System;
 
-namespace CraigCarRental
-{
-    public class Car
-    {
-        public string ID { get; set; }
-        public string Name { get; set; }
+namespace CraigCarRental {
+    public class Car {
+        public string CarID { get; set; }
+        public string CarName { get; set; } 
         public float Price { get; set; }
         public string Category { get; set; }
-        public string Description { get; set; }
+        public string Discription { get; set; } 
 
-        public Car()
-        {
-            ID = "";
-            Name = "";
+        public Car() {
+            CarID = "";
+            CarName = "";
             Price = (float)0.0;
             Category = "";
-            Description = "";
+            Discription = "";
 
         }
 
-        public Car(string id, string name, float price, string category, string description)
-        {
-            this.ID = id;
-            this.Name = name;
+        public Car(string id, string name, float price, string category, string description) {
+            this.CarID = id;
+            this.CarName = name;
             this.Price = price;
             this.Category = category;
-            this.Description = description;
+            this.Discription = description;
         }
 
-        public Car(Car copy)
-        {
-            this.ID = copy.ID;
-            this.Name = copy.Name;
+        public Car(Car copy) {
+            this.CarID = copy.CarID;
+            this.CarName = copy.CarName;
             this.Price = copy.Price;
             this.Category = copy.Category;
-            this.Description = copy.Description;
+            this.Discription = copy.Discription;
         }
     }
 }

@@ -4,11 +4,11 @@ namespace CraigCarRental {
 
     public class User {
         public int UserID { get; set; }
-        public String Firstname { get; set; }
-        public String Lastname { get; set; }
-        public String Username { get; set; }
-        public String Password { get; set; }
-        public String Type { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string UserType { get; set; }
 
         public User() {
             UserID = 0;
@@ -16,24 +16,24 @@ namespace CraigCarRental {
             Lastname = "";
             Username = "";
             Password = "";
-            Type = "";
+            UserType = "";
         }
 
 
-        public User(int ID, String Fname, String Lname, String type) {
+        public User(int ID, string Fname, string Lname, string type) {
             this.UserID = ID;
             this.Firstname = Fname;
             this.Lastname = Lname;
-            this.Type = type;
+            this.UserType = type;
         }
 
-        public User(int ID, String Fname, String Lname, String User, String Pwd, String type){
+        public User(int ID, string Fname, string Lname, string User, string Pwd, string type){
             this.UserID = ID;
             this.Firstname = Fname;
             this.Lastname = Lname;
             this.Username = User;
             this.Password = Pwd;
-            this.Type = type;
+            this.UserType = type; 
         }
     }
 }

@@ -23,14 +23,24 @@
                     <asp:Label class="tableRow" id ="Label3" runat="server" Text = '<%# Bind("productPrice") %>'></asp:Label> 
                 </ItemTemplate> 
             </asp:TemplateField> 
+            <asp:TemplateField HeaderText="START DATE">
+                <ItemTemplate>
+                    <asp:Label class="tableRow" id ="Label4" runat="server" Text = '<%# Bind("startDate") %>'></asp:Label> 
+                </ItemTemplate> 
+            </asp:TemplateField>
+             <asp:TemplateField HeaderText="END DATE">
+                <ItemTemplate>
+                    <asp:Label class="tableRow" id ="Label5" runat="server" Text = '<%# Bind("endDate") %>'></asp:Label> 
+                </ItemTemplate> 
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="DAYS RENTED">
                 <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label4" runat="server" Text = '<%# Bind("DaysRented") %>'></asp:Label> 
+                    <asp:Label class="tableRow" id ="Label6" runat="server" Text = '<%# Bind("DaysRented") %>'></asp:Label> 
                 </ItemTemplate> 
             </asp:TemplateField>
             <asp:TemplateField HeaderText="SUB-TOTAL">
                 <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label5" runat="server" Text = '<%# Bind("subTotal") %>'></asp:Label> 
+                    <asp:Label class="tableRow" id ="Label7" runat="server" Text = '<%# Bind("subTotal") %>'></asp:Label> 
                 </ItemTemplate> 
             </asp:TemplateField>
             <asp:CommandField ShowDeleteButton = "true" DeleteText="Remove" ButtonType="Link" />  

@@ -30,8 +30,9 @@ namespace CraigCarRental {
 		protected System.Web.UI.WebControls.Label Label4;
 		
 		protected System.Web.UI.WebControls.Label Label5;
-
-		public global::System.Web.UI.WebControls.Button ShoppingCart;
-
+		
+		protected System.Web.UI.WebControls.Label Label6;
+		
+		protected System.Web.UI.WebControls.Label Label7;
 	}
 }

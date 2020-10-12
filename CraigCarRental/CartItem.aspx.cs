@@ -27,6 +27,8 @@ namespace CraigCarRental{
                 dt.Columns.Add("productID");
                 dt.Columns.Add("productName");
                 dt.Columns.Add("productPrice");
+                dt.Columns.Add("startDate");
+                dt.Columns.Add("endDate");
                 dt.Columns.Add("DaysRented");
                 dt.Columns.Add("subTotal");
                 Session["CART"] = dt;
@@ -61,7 +63,7 @@ namespace CraigCarRental{
             dt = Database.CartQuery(UserID);
             //dt = (DataTable)Session["CART"]; 
 
-            Database.DeleteRentalQuery(dt.Rows[args.RowIndex][0].ToString());
+            Database.DeleteRentalQuery(dt.Rows[args.RowIndex][0].ToString(), UserID, (DateTime)dt.Rows[args.RowIndex][3], (DateTime)dt.Rows[args.RowIndex][4]);
 
             dt.Rows[args.RowIndex].Delete();
             //Session["CART"] = dt;

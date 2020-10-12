@@ -55,7 +55,7 @@ namespace CraigCarRental {
                     sqlConnection.Open();
                     MySqlCommand sqlCmd = new MySqlCommand("AddRental", sqlConnection);
                     sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("_CarID", rentalData.car.ID);
+                    sqlCmd.Parameters.AddWithValue("_CarID", rentalData.car.CarID);
                     sqlCmd.Parameters.AddWithValue("_UserID", rentalData.user.UserID);
                     //sqlCmd.Parameters.AddWithValue("_StartDate", DateTime.Today);
                     // sqlCmd.Parameters.AddWithValue("_EndDate", DateTime.Today.AddDays(rentalData.getDays()));
@@ -71,13 +71,16 @@ namespace CraigCarRental {
         }
 
 
-        public void DeleteRentalQuery(string ID) {
+        public void DeleteRentalQuery(string carID, int userID, DateTime sdate, DateTime edate) {
             try {
                 using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
                     sqlConnection.Open();
                     MySqlCommand sqlCmd = new MySqlCommand("RemoveRental", sqlConnection);
                     sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("_CarID", ID);
+                    sqlCmd.Parameters.AddWithValue("_CarID", carID);
+                    sqlCmd.Parameters.AddWithValue("_UserID", userID);
+                    sqlCmd.Parameters.AddWithValue("_StartDate", sdate);
+                    sqlCmd.Parameters.AddWithValue("_EndDate", edate);
                     sqlCmd.ExecuteNonQuery();
                 }
 
