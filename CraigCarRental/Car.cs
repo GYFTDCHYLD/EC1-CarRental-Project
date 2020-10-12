@@ -1,14 +1,17 @@
 ﻿using System;
 
-namespace CraigCarRental {
-    public class Car {
-        private String ID;
-        private String Name;
-        private float Price;
-        private String Category;
-        private String Description;
+namespace CraigCarRental
+{
+    public class Car
+    {
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public float Price { get; set; }
+        public string Category { get; set; }
+        public string Description { get; set; }
 
-        public Car(){
+        public Car()
+        {
             ID = "";
             Name = "";
             Price = (float)0.0;
@@ -17,7 +20,8 @@ namespace CraigCarRental {
 
         }
 
-        public Car(String id, String name, float price, String category, String description) {
+        public Car(string id, string name, float price, string category, string description)
+        {
             this.ID = id;
             this.Name = name;
             this.Price = price;
@@ -25,53 +29,13 @@ namespace CraigCarRental {
             this.Description = description;
         }
 
-        public Car(Car copy) {
+        public Car(Car copy)
+        {
             this.ID = copy.ID;
             this.Name = copy.Name;
             this.Price = copy.Price;
             this.Category = copy.Category;
             this.Description = copy.Description;
-        }
-
-
-        public void setID(String id) {
-            this.ID = id;
-        }
-
-        public String getID() {
-            return ID;
-        }
-
-        public void setName(String name) {
-            this.Name = name;
-        }
-
-        public String getName() {
-            return Name;
-        }
-
-        public void setPrice(float price) {
-            this.Price = price;
-        }
-
-        public float getPrice() {
-            return Price;
-        }
-
-        public void setPCategory(String category) {
-            this.Category = category;
-        }
-
-        public String getPCategory() {
-            return Category;
-        }
-
-        public void setPassword(String description) {
-            this.Description = description;
-        }
-
-        public String getDescription() {
-            return Description;
         }
     }
 }

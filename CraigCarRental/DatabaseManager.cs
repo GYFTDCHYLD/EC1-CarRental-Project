@@ -55,12 +55,12 @@ namespace CraigCarRental {
                     sqlConnection.Open();
                     MySqlCommand sqlCmd = new MySqlCommand("AddRental", sqlConnection);
                     sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("_CarID", rentalData.getCar().getID());
-                    sqlCmd.Parameters.AddWithValue("_UserID", rentalData.getCustomer().getId());
+                    sqlCmd.Parameters.AddWithValue("_CarID", rentalData.car.ID);
+                    sqlCmd.Parameters.AddWithValue("_UserID", rentalData.user.UserID);
                     //sqlCmd.Parameters.AddWithValue("_StartDate", DateTime.Today);
                     // sqlCmd.Parameters.AddWithValue("_EndDate", DateTime.Today.AddDays(rentalData.getDays()));
-                    sqlCmd.Parameters.AddWithValue("_StartDate", rentalData.getStartDate());
-                    sqlCmd.Parameters.AddWithValue("_EndDate", rentalData.getEndDate());
+                    sqlCmd.Parameters.AddWithValue("_StartDate", rentalData.startDate);
+                    sqlCmd.Parameters.AddWithValue("_EndDate", rentalData.endDate);
                     sqlCmd.Parameters.AddWithValue("_Checkout", false);
                     sqlCmd.ExecuteNonQuery();
                 }
