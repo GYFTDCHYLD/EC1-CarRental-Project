@@ -341,6 +341,15 @@ h2 {
     padding-bottom: 400px;
 }
 
-.dataInput{
-    width: 30%;
+.dataInput {
+    width: 80px;
+    text-align: center;
+    border: 2px inset gold;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.6);
+    box-shadow: 0px 1px 5px black;
 }
+    .dataInput:focus {
+        background: gold;
+        border: 2px outset white;
+    }

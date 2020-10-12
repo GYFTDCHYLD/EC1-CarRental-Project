@@ -16,8 +16,8 @@
                     <br>
                 </label>
                 <p>
-                    <asp:TextBox ID="StartDate1" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
-                    <asp:TextBox ID="EndDate1" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                    <asp:TextBox CssClass="dataInput" ID="StartDate1" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                    <asp:TextBox CssClass="dataInput" ID="EndDate1" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
                     <asp:button class="addToCartButton" id="SKU1245" Text = "ADD TO CART" runat = "server" OnClick="Clicked"   />
                 </p><br>
             </div>
@@ -34,8 +34,8 @@
                     <br>Unit price: $11,500
                 </label>
                 <p>
-                    <asp:TextBox ID="StartDate2" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate"></asp:TextBox>
-                    <asp:TextBox ID="EndDate2" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
+                    <asp:TextBox CssClass="dataInput" ID="StartDate2" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate"></asp:TextBox>
+                    <asp:TextBox CssClass="dataInput" ID="EndDate2" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
                     <asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server" OnClick="Clicked" />
                 </p><br>
             </div>    
