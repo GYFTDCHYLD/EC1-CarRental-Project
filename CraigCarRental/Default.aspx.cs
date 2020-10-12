@@ -50,6 +50,7 @@ namespace CraigCarRental {
             
 
             if (days > 0) {
+                days = 0;
                 Button button = (Button)sender;
                 string buttonId = button.ID;// get the "ID" from the pressed button
 

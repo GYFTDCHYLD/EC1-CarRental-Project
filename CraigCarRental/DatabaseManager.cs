@@ -35,7 +35,7 @@ namespace CraigCarRental {
                 connection.Open();
                 MySqlDataReader dr = command.ExecuteReader(CommandBehavior.CloseConnection);
                 while (dr.Read()) {
-                    car = new Car(Convert.ToString(dr["CarID"]), Convert.ToString(dr["CarName"]), (float)(dr["Price"]), Convert.ToString(dr["Category"]), Convert.ToString(dr["Discription"]));
+                    car = new Car(Convert.ToString(dr["productID"]), Convert.ToString(dr["productName"]), (float)(dr["productPrice"]), Convert.ToString(dr["Category"]), Convert.ToString(dr["Description"]));
                 }
                 dr.Close();
                 return car;
@@ -55,7 +55,7 @@ namespace CraigCarRental {
                     sqlConnection.Open();
                     MySqlCommand sqlCmd = new MySqlCommand("AddRental", sqlConnection);
                     sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("_CarID", rentalData.car.CarID);
+                    sqlCmd.Parameters.AddWithValue("_CarID", rentalData.car.productID);
                     sqlCmd.Parameters.AddWithValue("_UserID", rentalData.user.UserID);
                     //sqlCmd.Parameters.AddWithValue("_StartDate", DateTime.Today);
                     // sqlCmd.Parameters.AddWithValue("_EndDate", DateTime.Today.AddDays(rentalData.getDays()));

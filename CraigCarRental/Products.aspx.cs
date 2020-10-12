@@ -74,6 +74,7 @@ namespace CraigCarRental {
         public void Clicked(object sender, EventArgs args) {
 
             if (days > 0) {
+                days = 0;
                 Button button = (Button)sender;
                 string buttonId = button.ID;// get the "ID" from the pressed button
                 DatabaseManager DB = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
