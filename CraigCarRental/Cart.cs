@@ -23,7 +23,7 @@ namespace CraigCarRental {
         public void RemoveFromCart(String ID) {
             int i = 0;
             foreach (var Rental in Rentals){
-                if (Rental.getCar().getID().Equals(ID)) {
+                if (Rental.car.ID.Equals(ID)) {
                     Rentals.RemoveAt(i);
                     break;
                 }
@@ -34,8 +34,6 @@ namespace CraigCarRental {
         public void RemoveFromCart() {
             Rentals.RemoveAt(0);
         }
-
-        public List<CartItem> Items { get; internal set; }
 
         public List<Rental> getCart() {
             return Rentals;

@@ -59,11 +59,11 @@ namespace CraigCarRental{
                 dt = new DataTable();
                 dt = (DataTable)Session["CART"];
                 dr = dt.NewRow();
-                dr["productID"] = rentalData.getCar().getID();
-                dr["productName"] = rentalData.getCar().getName();
-                dr["productPrice"] = rentalData.getCar().getPrice().ToString();
-                dr["DaysRented"] = rentalData.getDays();
-                dr["subTotal"] = (rentalData.getDays() * rentalData.getCar().getPrice());
+                dr["productID"] = rentalData.car.ID;
+                dr["productName"] = rentalData.car.Name;
+                dr["productPrice"] = rentalData.car.Price.ToString();
+                dr["DaysRented"] = rentalData.Days;
+                dr["subTotal"] = (rentalData.Days * rentalData.car.Price);
                 dt.Rows.Add(dr);
                 Session["CART"] = dt;
 

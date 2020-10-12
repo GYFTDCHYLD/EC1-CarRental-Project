@@ -16,7 +16,7 @@ namespace CraigCarRental {
         public Car selectCar(String id) {
 
             foreach (var Car in Cars) {
-                if (Car.getID().Equals(id))
+                if (Car.ID.Equals(id))
                     return Car;
             }
             return null;     
