@@ -25,7 +25,7 @@ namespace CraigCarRental{
             if (Session["CART"] == null) {
                 dt = new DataTable();
                 dt.Columns.Add("productID");
-                dt.Columns.Add("productName");
+                dt.Columns.Add("productImage");
                 dt.Columns.Add("productPrice");
                 dt.Columns.Add("startDate");
                 dt.Columns.Add("endDate");
@@ -69,6 +69,10 @@ namespace CraigCarRental{
             //Session["CART"] = dt;
 
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
+        }
+
+        public void Checkout(object sender, EventArgs args) {
+
         }
     }
 }

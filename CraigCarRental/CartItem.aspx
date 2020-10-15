@@ -4,18 +4,13 @@
     <h2> SHOPPING CART </h2> 
      <asp:Label id="deletedId" CssClass = "cartLabel"  runat="server" />
     <hr>
- 
+
     <center><asp:Label class="CartTotal"  id ="cartTotal" runat="server" Text = ""/>  
     <asp:GridView CssClass = "GridView" id="GridView1" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView1_RowDeleting" > 
         <Columns>
-            <asp:TemplateField HeaderText="PRODUCT ID">
+            <asp:TemplateField HeaderText="PRODUCT IMAGE">
                 <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label1" runat="server" Text = '<%# Bind("productID") %>'></asp:Label>
-                </ItemTemplate> 
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="PRODUCT NAME">
-                <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label2" runat="server" Text = '<%# Bind("productName") %>'></asp:Label> 
+                    <asp:Image class="tableRow" id="Image1" Width="80" runat="server" ImageUrl='<%#Bind("productImage") %>'></asp:Image>
                 </ItemTemplate> 
             </asp:TemplateField>
             <asp:TemplateField HeaderText="UNIT PRICE">
@@ -46,6 +41,7 @@
             <asp:CommandField ShowDeleteButton = "true" DeleteText="Remove" ButtonType="Link" />  
         </Columns>
     </asp:GridView> 
+
     </center> 
-    <hr><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <hr><button style=" float: right" class="addToCartButton" onclick="Checkout">CHECKOUT</button><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
  </asp:Content>

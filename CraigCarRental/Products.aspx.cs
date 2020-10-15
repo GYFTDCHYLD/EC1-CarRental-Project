@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web.UI;
 using System.Collections;
+using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.UI.WebControls;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Text.Encodings.Web;
 using System.Management.Instrumentation;
 using MySql.Data.MySqlClient;
 using System.ComponentModel;
+using System.Web.UI.HtmlControls;
 
 namespace CraigCarRental {
 
@@ -22,7 +24,7 @@ namespace CraigCarRental {
         DateTime StartDate, EndDate;
 
         public void Page_Load(object sender, EventArgs args) {
-            if (Session["CART"] == null) {
+        /*    if (Session["CART"] == null) {
                 dt = new DataTable();
                 dt.Columns.Add("productID");
                 dt.Columns.Add("productName");
@@ -32,59 +34,42 @@ namespace CraigCarRental {
                 dt.Columns.Add("DaysRented");
                 dt.Columns.Add("subTotal");
                 Session["CART"] = dt;
-            }
-        }
-
-        public void ProcessDate(object sender, EventArgs args) {
-            if ((StartDate1.Text != "") && (EndDate1.Text != ""))
-            {
-                StartDate = DateTime.ParseExact(StartDate1.Text, "dd/MM/yyyy", null);
-                EndDate = DateTime.ParseExact(EndDate1.Text, "dd/MM/yyyy", null);
-            }
-            else if ((StartDate2.Text != "") && (EndDate2.Text != ""))
-            {
-                StartDate = DateTime.ParseExact(StartDate2.Text, "dd/MM/yyyy", null);
-                EndDate = DateTime.ParseExact(EndDate2.Text, "dd/MM/yyyy", null);
-            }
-            else if ((StartDate3.Text != "") && (EndDate3.Text != ""))
-            {
-                StartDate = DateTime.ParseExact(StartDate3.Text, "dd/MM/yyyy", null);
-                EndDate = DateTime.ParseExact(EndDate3.Text, "dd/MM/yyyy", null);
-            }
-            else if ((StartDate4.Text != "") && (EndDate4.Text != ""))
-            {
-                StartDate = DateTime.ParseExact(StartDate4.Text, "dd/MM/yyyy", null);
-                EndDate = DateTime.ParseExact(EndDate4.Text, "dd/MM/yyyy", null);
-            }
-            else if ((StartDate5.Text != "") && (EndDate5.Text != ""))
-            {
-                StartDate = DateTime.ParseExact(StartDate5.Text, "dd/MM/yyyy", null);
-                EndDate = DateTime.ParseExact(EndDate5.Text, "dd/MM/yyyy", null);
-            }
-            else if ((StartDate6.Text != "") && (EndDate6.Text != ""))
-            {
-                StartDate = DateTime.ParseExact(StartDate6.Text, "dd/MM/yyyy", null);
-                EndDate = DateTime.ParseExact(EndDate6.Text, "dd/MM/yyyy", null);
-            }
-
-            days = Int32.Parse((EndDate - StartDate).TotalDays.ToString());
+            }*/
+            DatabaseManager db = new DatabaseManager();
+            PRODUCTS.DataSource = db.ProductQuery();
+            PRODUCTS.DataBind();
         }
 
 
-        public void Clicked(object sender, EventArgs args) {
+
+        public void PRODUCTS_ItemCommand(object source, DataListCommandEventArgs arg) {
+            if (arg.CommandName.Equals("addToCart")) {
+                //TextBox start = (TextBox)(arg.Item.FindControl("StartDate1"));
+                //TextBox end = (TextBox)(arg.Item.FindControl("EndDate1"));
+
+                string start = Request.Form["StartDate1"].Trim(new Char[] { ',' });
+                string end = Request.Form["EndDate1"].Trim(new Char[] { ',' });
+
+                try {
+                    StartDate = DateTime.ParseExact(start, "dd/MM/yyyy", null);
+                    EndDate = DateTime.ParseExact(end, "dd/MM/yyyy", null);
+                    days = Int32.Parse((EndDate - StartDate).TotalDays.ToString());
+                }
+                catch(Exception) {
+                    days = 0;
+                }
+            }
 
             if (days > 0) {
-                days = 0;
-                Button button = (Button)sender;
-                string buttonId = button.ID;// get the "ID" from the pressed button
+                string buttonId = arg.CommandArgument.ToString();// get the "ID" from the pressed button
                 DatabaseManager DB = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
 
                 Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), DB.SelectCarQuery(buttonId), StartDate, EndDate);
                 DB.RentalQuery(rentalData);
 
                 Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
-
-            }else {
+            }
+            else {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Enter Start and End Date before adding item to cart');", true);
             }
         }

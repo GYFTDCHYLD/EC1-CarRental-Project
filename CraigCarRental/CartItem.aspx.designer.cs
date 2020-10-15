@@ -21,9 +21,7 @@ namespace CraigCarRental {
 		
 		protected System.Web.UI.WebControls.GridView GridView1;
 		
-		protected System.Web.UI.WebControls.Label Label1;
-		
-		protected System.Web.UI.WebControls.Label Label2;
+		protected System.Web.UI.WebControls.Image Image1;
 		
 		protected System.Web.UI.WebControls.Label Label3;
 		

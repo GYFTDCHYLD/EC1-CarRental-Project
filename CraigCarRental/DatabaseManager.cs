@@ -53,7 +53,7 @@ namespace CraigCarRental {
             try {
                 using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
                     sqlConnection.Open();
-                    MySqlCommand sqlCmd = new MySqlCommand("AddRental", sqlConnection);
+                    MySqlCommand sqlCmd = new MySqlCommand("AddToCart", sqlConnection);
                     sqlCmd.CommandType = CommandType.StoredProcedure;
                     sqlCmd.Parameters.AddWithValue("_CarID", rentalData.car.productID);
                     sqlCmd.Parameters.AddWithValue("_UserID", rentalData.user.UserID);
@@ -61,7 +61,6 @@ namespace CraigCarRental {
                     // sqlCmd.Parameters.AddWithValue("_EndDate", DateTime.Today.AddDays(rentalData.getDays()));
                     sqlCmd.Parameters.AddWithValue("_StartDate", rentalData.startDate);
                     sqlCmd.Parameters.AddWithValue("_EndDate", rentalData.endDate);
-                    sqlCmd.Parameters.AddWithValue("_Checkout", false);
                     sqlCmd.ExecuteNonQuery();
                 }
 
@@ -75,7 +74,7 @@ namespace CraigCarRental {
             try {
                 using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
                     sqlConnection.Open();
-                    MySqlCommand sqlCmd = new MySqlCommand("RemoveRental", sqlConnection);
+                    MySqlCommand sqlCmd = new MySqlCommand("RemoveFromCart", sqlConnection);
                     sqlCmd.CommandType = CommandType.StoredProcedure;
                     sqlCmd.Parameters.AddWithValue("_CarID", carID);
                     sqlCmd.Parameters.AddWithValue("_UserID", userID);
@@ -106,6 +105,28 @@ namespace CraigCarRental {
 
             }
          return table;
+        }
+
+        public DataSet ProductQuery(){
+            DataSet dataSet = new DataSet();
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlDataAdapter sqlData = new MySqlDataAdapter("displayCar", sqlConnection);
+                    sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    
+                    sqlData.Fill(dataSet);
+                    //DataList1.DataSource = dataSet;
+                   // DataList1.DataBind();
+                    sqlConnection.Close();
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
+            return dataSet;
         }
     }
 }
