@@ -14,8 +14,9 @@ using System.Threading;
 using MySql.Data.MySqlClient;
 using System.ComponentModel;
 
-namespace CraigCarRental{ 
-    public partial class CartItem : System.Web.UI.Page {
+namespace CraigCarRental{
+    public partial class CartItem : System.Web.UI.Page
+    {
         DataTable dt;
         Cart cart = new Cart();
         int UserID = 1;
@@ -24,6 +25,7 @@ namespace CraigCarRental{
         protected void Page_Load(object sender, EventArgs args) {
             if (Session["CART"] == null) {
                 dt = new DataTable();
+                dt.Columns.Add("UserID");
                 dt.Columns.Add("productID");
                 dt.Columns.Add("productImage");
                 dt.Columns.Add("productPrice");
@@ -38,13 +40,13 @@ namespace CraigCarRental{
             }
         }
 
-        private void calculateSum(){
+        private void calculateSum() {
             double grandTotal = 0;
-            foreach (DataRow dr in dt.Rows){
+            foreach (DataRow dr in dt.Rows) {
                 grandTotal += Convert.ToDouble(dr["subTotal"]);
             }
-            if(grandTotal > 0)
-                 cartTotal.Text = "GRAND TOTAL: $" + grandTotal;
+            if (grandTotal > 0)
+                cartTotal.Text = "GRAND TOTAL: $" + grandTotal;
             else
                 Response.Redirect("Products.aspx");//redirect to products if cart is empty
         }
@@ -58,12 +60,12 @@ namespace CraigCarRental{
         }
 
 
-        public void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs args ) {
+        public void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs args) {
 
             dt = Database.CartQuery(UserID);
             //dt = (DataTable)Session["CART"]; 
 
-            Database.DeleteRentalQuery(dt.Rows[args.RowIndex][0].ToString(), UserID, (DateTime)dt.Rows[args.RowIndex][3], (DateTime)dt.Rows[args.RowIndex][4]);
+            Database.DeleteRentalQuery(dt.Rows[args.RowIndex][1].ToString(), UserID, (DateTime)dt.Rows[args.RowIndex][4], (DateTime)dt.Rows[args.RowIndex][5]);
 
             dt.Rows[args.RowIndex].Delete();
             //Session["CART"] = dt;
@@ -71,8 +73,26 @@ namespace CraigCarRental{
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
 
-        public void Checkout(object sender, EventArgs args) {
+        public void CheckoutItem(object sender, EventArgs args) {
+                DateTime checkoutTime = DateTime.Now;
+                Checkout Checkout = new Checkout();
+                int row = dt.Rows.Count-1;
+                while (row >= 0){
+                    Checkout.checkouTime = checkoutTime;
+                    Checkout.OrderID = dt.Rows[row][0] + checkoutTime.ToString();// user id plus timestamp to make unique order-id
+                    Checkout.CarID = dt.Rows[row][1].ToString();
+                    Checkout.Username = "Craig";
+                    Checkout.StartDate = (DateTime)dt.Rows[row][4];
+                    Checkout.EndDate = (DateTime)dt.Rows[row][5];
+                    Checkout.NumberOfDays = Int32.Parse(dt.Rows[row][6].ToString());
+                    Checkout.Subtotal = float.Parse(dt.Rows[row][7].ToString());
+                    Database.checkoutQuery(Checkout);
 
+                    Database.DeleteRentalQuery(dt.Rows[row][1].ToString(), UserID, (DateTime)dt.Rows[row][4], (DateTime)dt.Rows[row][5]);
+                    dt.Rows[row].Delete();
+                    row -= 1;
+                }
+            Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
     }
 }

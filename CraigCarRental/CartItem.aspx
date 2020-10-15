@@ -43,5 +43,6 @@
     </asp:GridView> 
 
     </center> 
-    <hr><button style=" float: right" class="addToCartButton" onclick="Checkout">CHECKOUT</button><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <asp:Button style=" float: right" class="addToCartButton" id="Checkout"  runat="server" CommandName="Checkout" CommandArgument='<%#Bind("UserID")%>' Text="CHECKOUT" CausesValidation="True" UseSubmitBehavior="false" OnClick="CheckoutItem" />
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
  </asp:Content>

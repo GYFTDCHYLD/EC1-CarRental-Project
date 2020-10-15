@@ -32,5 +32,7 @@ namespace CraigCarRental {
 		protected System.Web.UI.WebControls.Label Label6;
 		
 		protected System.Web.UI.WebControls.Label Label7;
+		
+		protected System.Web.UI.WebControls.Button Checkout;
 	}
 }

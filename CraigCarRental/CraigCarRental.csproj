@@ -573,6 +573,7 @@
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="DatabaseManager.cs" />
+    <Compile Include="Checkout.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />

@@ -107,6 +107,31 @@ namespace CraigCarRental {
          return table;
         }
 
+        public void checkoutQuery(Checkout Checkout) {
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlCommand sqlCmd = new MySqlCommand("processOrder", sqlConnection);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("_OrderID", Checkout.OrderID);
+                    sqlCmd.Parameters.AddWithValue("_CarID", Checkout.CarID);
+                    sqlCmd.Parameters.AddWithValue("_Username", Checkout.Username);
+                    sqlCmd.Parameters.AddWithValue("_StartDate", Checkout.StartDate);
+                    sqlCmd.Parameters.AddWithValue("_EndDate", Checkout.EndDate);
+                    sqlCmd.Parameters.AddWithValue("_NumberOfDays", Checkout.NumberOfDays);
+                    sqlCmd.Parameters.AddWithValue("_orderDate", Checkout.checkouTime);
+                    sqlCmd.ExecuteNonQuery();
+                    //sqlConnection.Close(); 
+                }
+
+            }
+            catch (Exception) {
+
+            }
+        }
+
+
+
         public DataSet ProductQuery(){
             DataSet dataSet = new DataSet();
             try {

@@ -24,28 +24,16 @@ namespace CraigCarRental {
         DateTime StartDate, EndDate;
 
         public void Page_Load(object sender, EventArgs args) {
-        /*    if (Session["CART"] == null) {
-                dt = new DataTable();
-                dt.Columns.Add("productID");
-                dt.Columns.Add("productName");
-                dt.Columns.Add("productPrice");
-                dt.Columns.Add("startDate");
-                dt.Columns.Add("endDate");
-                dt.Columns.Add("DaysRented");
-                dt.Columns.Add("subTotal");
-                Session["CART"] = dt;
-            }*/
-            DatabaseManager db = new DatabaseManager();
-            PRODUCTS.DataSource = db.ProductQuery();
-            PRODUCTS.DataBind();
+            if (!IsPostBack) { 
+                DatabaseManager db = new DatabaseManager();
+                PRODUCTS.DataSource = db.ProductQuery();
+                PRODUCTS.DataBind();
+            }
         }
-
 
 
         public void PRODUCTS_ItemCommand(object source, DataListCommandEventArgs arg) {
             if (arg.CommandName.Equals("addToCart")) {
-                //TextBox start = (TextBox)(arg.Item.FindControl("StartDate1"));
-                //TextBox end = (TextBox)(arg.Item.FindControl("EndDate1"));
 
                 string start = Request.Form["StartDate1"].Trim(new Char[] { ',' });
                 string end = Request.Form["EndDate1"].Trim(new Char[] { ',' });
