@@ -43,7 +43,6 @@ namespace CraigCarRental {
             }catch (Exception) {
 
             }
-
         return car;
         }
 
@@ -123,7 +122,6 @@ namespace CraigCarRental {
                     sqlCmd.ExecuteNonQuery();
                     //sqlConnection.Close(); 
                 }
-
             }
             catch (Exception) {
 
@@ -132,7 +130,7 @@ namespace CraigCarRental {
 
 
 
-        public DataSet ProductQuery(){
+        public DataSet ProductQuery(){// retrieve product from tatabace to be displayed on product page
             DataSet dataSet = new DataSet();
             try {
                 using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
@@ -145,10 +143,8 @@ namespace CraigCarRental {
                    // DataList1.DataBind();
                     sqlConnection.Close();
                 }
-
             }
-            catch (Exception)
-            {
+            catch (Exception){
 
             }
             return dataSet;

@@ -23,7 +23,7 @@ namespace CraigCarRental{
         DatabaseManager Database = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
 
         protected void Page_Load(object sender, EventArgs args) {
-            if (Session["CART"] == null) {
+            if (Session["CHECKOUT"] == null) {
                 dt = new DataTable();
                 dt.Columns.Add("UserID");
                 dt.Columns.Add("productID");
@@ -33,9 +33,9 @@ namespace CraigCarRental{
                 dt.Columns.Add("endDate");
                 dt.Columns.Add("DaysRented");
                 dt.Columns.Add("subTotal");
-                Session["CART"] = dt;
+                Session["CHECKOUT"] = dt;
             }
-            if (Session["CART"] != null) {
+            if (Session["CHECKOUT"] != null) {
                 FillGrid();
             }
         }
@@ -53,7 +53,7 @@ namespace CraigCarRental{
 
         public void FillGrid() {
             dt = Database.CartQuery(UserID);
-            //dt = (DataTable)Session["CART"];
+            Session["CHECKOUT"] = dt;
             GridView1.DataSource = dt;
             GridView1.DataBind();
             calculateSum();
@@ -63,36 +63,35 @@ namespace CraigCarRental{
         public void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs args) {
 
             dt = Database.CartQuery(UserID);
-            //dt = (DataTable)Session["CART"]; 
 
             Database.DeleteRentalQuery(dt.Rows[args.RowIndex][1].ToString(), UserID, (DateTime)dt.Rows[args.RowIndex][4], (DateTime)dt.Rows[args.RowIndex][5]);
 
             dt.Rows[args.RowIndex].Delete();
-            //Session["CART"] = dt;
 
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
 
         public void CheckoutItem(object sender, EventArgs args) {
-                DateTime checkoutTime = DateTime.Now;
-                Checkout Checkout = new Checkout();
-                int row = dt.Rows.Count-1;
-                while (row >= 0){
-                    Checkout.checkouTime = checkoutTime;
-                    Checkout.OrderID = dt.Rows[row][0] + checkoutTime.ToString();// user id plus timestamp to make unique order-id
-                    Checkout.CarID = dt.Rows[row][1].ToString();
-                    Checkout.Username = "Craig";
-                    Checkout.StartDate = (DateTime)dt.Rows[row][4];
-                    Checkout.EndDate = (DateTime)dt.Rows[row][5];
-                    Checkout.NumberOfDays = Int32.Parse(dt.Rows[row][6].ToString());
-                    Checkout.Subtotal = float.Parse(dt.Rows[row][7].ToString());
-                    Database.checkoutQuery(Checkout);
 
-                    Database.DeleteRentalQuery(dt.Rows[row][1].ToString(), UserID, (DateTime)dt.Rows[row][4], (DateTime)dt.Rows[row][5]);
-                    dt.Rows[row].Delete();
-                    row -= 1;
-                }
-            Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
+            DateTime checkoutTime = DateTime.Now;
+            Checkout Checkout = new Checkout();
+            int row = dt.Rows.Count-1;
+            while (row >= 0){
+                Checkout.checkouTime = checkoutTime;
+                Checkout.OrderID = dt.Rows[row][0] + checkoutTime.ToString();// user id plus timestamp to make unique order-id
+                Checkout.CarID = dt.Rows[row][1].ToString();
+                Checkout.Username = "Craig";
+                Checkout.StartDate = (DateTime)dt.Rows[row][4];
+                Checkout.EndDate = (DateTime)dt.Rows[row][5];
+                Checkout.NumberOfDays = Int32.Parse(dt.Rows[row][6].ToString());
+                Checkout.Subtotal = float.Parse(dt.Rows[row][7].ToString());
+                Database.checkoutQuery(Checkout);
+
+                Database.DeleteRentalQuery(dt.Rows[row][1].ToString(), UserID, (DateTime)dt.Rows[row][4], (DateTime)dt.Rows[row][5]);
+                dt.Rows[row].Delete();
+                row -= 1;
+            }
+        Response.Redirect("Invoice.aspx");// refresh page /redirect to invoice
         }
     }
 }
