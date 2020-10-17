@@ -74,11 +74,17 @@ namespace CraigCarRental{
         public void CheckoutItem(object sender, EventArgs args) {
 
             DateTime checkoutTime = DateTime.Now;
+            string checkoutID = checkoutTime.ToString();
+            checkoutID = checkoutID.Replace("AM", "");
+            checkoutID = checkoutID.Replace("PM", "");
+            checkoutID = checkoutID.Replace(" ", "");
+            checkoutID = checkoutID.Replace("/", "");
+            checkoutID = checkoutID.Replace(":", "");
             Checkout Checkout = new Checkout();
             int row = dt.Rows.Count-1;
             while (row >= 0){
                 Checkout.checkouTime = checkoutTime;
-                Checkout.OrderID = dt.Rows[row][0] + checkoutTime.ToString();// user id plus timestamp to make unique order-id
+                Checkout.OrderID = dt.Rows[row][0] + checkoutID.ToString();// user id plus timestamp to make unique order-id
                 Checkout.CarID = dt.Rows[row][1].ToString();
                 Checkout.Username = "Craig";
                 Checkout.StartDate = (DateTime)dt.Rows[row][4];
@@ -91,7 +97,8 @@ namespace CraigCarRental{
                 dt.Rows[row].Delete();
                 row -= 1;
             }
-        Response.Redirect("Invoice.aspx");// refresh page /redirect to invoice
+            Session["CHECKOUT"] = checkoutID;
+            Response.Redirect("Invoice.aspx");// refresh page /redirect to invoice
         }
     }
 }

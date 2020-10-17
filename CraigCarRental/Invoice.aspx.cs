@@ -9,11 +9,11 @@ namespace CraigCarRental
 
     public partial class Invoice : System.Web.UI.Page {
         DataTable dt = new DataTable();
+        string checkoutID;
         protected void Page_Load(object sender, EventArgs args) {
             if(Session["CHECKOUT"] != null) {
-                dt = (DataTable)Session["CHECKOUT"];
+                checkoutID = Session["CHECKOUT"].ToString();
                 FillGrid();
-                Session["CHECKOUT"] = null;
             }
             else {
                 Response.Redirect("CartItem.aspx");// refresh page /redirect to itself
@@ -22,9 +22,9 @@ namespace CraigCarRental
         }
 
         public void FillGrid(){
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-            cartTotal.Text = dt.Rows.Count.ToString();
+            //GridView1.DataSource = dt;
+            //GridView1.DataBind();
+            cartTotal.Text = "ORDER ID: "+ checkoutID;
 
            // calculateSum();
         }

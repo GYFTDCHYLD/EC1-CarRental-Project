@@ -120,7 +120,7 @@ namespace CraigCarRental {
                     sqlCmd.Parameters.AddWithValue("_NumberOfDays", Checkout.NumberOfDays);
                     sqlCmd.Parameters.AddWithValue("_orderDate", Checkout.checkouTime);
                     sqlCmd.ExecuteNonQuery();
-                    //sqlConnection.Close(); 
+                    sqlConnection.Close(); 
                 }
             }
             catch (Exception) {
