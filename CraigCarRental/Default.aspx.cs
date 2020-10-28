@@ -16,7 +16,11 @@ namespace CraigCarRental {
                 if (Session["LOGEDIN"] == null) {
                     Session["LOGEDIN"] = UZR;
                 }
-                Response.Redirect("Home.aspx");
+                if(UZR.UserType.Equals("Manager"))
+                    Response.Redirect("AdminPanel.aspx");
+                else
+                    if (UZR.UserType.Equals("Customer"))
+                        Response.Redirect("Home.aspx");
             }
             else
                 loginLabel.Text = "Incorrect Username or Password";

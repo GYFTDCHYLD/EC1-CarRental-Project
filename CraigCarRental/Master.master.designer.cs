@@ -8,12 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CraigCarRental
-{
+namespace CraigCarRental {
 
 
-	public partial class Master
-	{
+	public partial class Master {
 
 		protected System.Web.UI.HtmlControls.HtmlButton HomeButton;
 

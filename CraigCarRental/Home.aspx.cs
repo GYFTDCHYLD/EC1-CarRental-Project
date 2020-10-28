@@ -72,7 +72,7 @@ namespace CraigCarRental {
 
                 DatabaseManager DB = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
 
-                Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), DB.SelectCarQuery(buttonId), StartDate, EndDate);
+                Rental rentalData = new Rental(UZR, DB.SelectCarQuery(buttonId), StartDate, EndDate);
                 DB.RentalQuery(rentalData);
 
                 Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself

@@ -99,7 +99,7 @@ namespace CraigCarRental{
                 dt.Rows[row].Delete();
                 row -= 1;
             }
-            Session["CHECKOUT"] = checkoutID;
+            Session["CHECKOUT"] = Checkout.OrderID;
             Response.Redirect("Invoice.aspx");// refresh page /redirect to invoice
         }
     }

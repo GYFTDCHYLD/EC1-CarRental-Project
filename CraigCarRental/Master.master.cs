@@ -13,16 +13,18 @@ using System.Management.Instrumentation;
 namespace CraigCarRental {
 
     public partial class Master : System.Web.UI.MasterPage {
-      
+        User UZR;
         DataTable dt;
-        int UserID = 1;
         DatabaseManager Database = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
 
         public void Page_Load(object sender, EventArgs args) {
 
             cartLabel.Text = "";
+            if (Session["LOGEDIN"] != null){
+                UZR = (User)Session["LOGEDIN"];
+            }
             if (Session["CART"] != null) {
-                dt = Database.CartQuery(UserID);
+                dt = Database.CartQuery(UZR.UserID);
                 //dt = (DataTable)Session["CART"];
                 if(dt.Rows.Count > 0)
                     ShoppingCart.Text = dt.Rows.Count.ToString();

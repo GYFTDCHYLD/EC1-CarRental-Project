@@ -61,6 +61,7 @@ namespace CraigCarRental {
                     sqlCmd.Parameters.AddWithValue("_StartDate", rentalData.startDate);
                     sqlCmd.Parameters.AddWithValue("_EndDate", rentalData.endDate);
                     sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
                 }
 
             } catch (Exception) {
@@ -80,6 +81,7 @@ namespace CraigCarRental {
                     sqlCmd.Parameters.AddWithValue("_StartDate", sdate);
                     sqlCmd.Parameters.AddWithValue("_EndDate", edate);
                     sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
                 }
 
             } catch (Exception) {
@@ -87,7 +89,24 @@ namespace CraigCarRental {
             }
         }
 
-       
+        public void DeleteCar(string carID) {
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)){
+                    sqlConnection.Open();
+                    MySqlCommand sqlCmd = new MySqlCommand("RemoveCar", sqlConnection);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("_CarID", carID);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+                }
+
+            }
+            catch (Exception) {
+
+            }
+        }
+
+
         public DataTable CartQuery(int ID) { 
             DataTable table = new DataTable();
             try {
@@ -98,12 +117,32 @@ namespace CraigCarRental {
                     sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
                    
                     sqlData.Fill(table);
+                    sqlConnection.Close();
                 }
 
             } catch (Exception) {
 
             }
          return table;
+        }
+
+
+        public DataTable AdminQuery() {
+            DataTable table = new DataTable();
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlDataAdapter sqlData = new MySqlDataAdapter("RetrieveCars", sqlConnection);
+                    sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    sqlData.Fill(table);
+                    sqlConnection.Close();
+                }
+
+            }
+            catch (Exception) {
+
+            }
+            return table;
         }
 
         public void checkoutQuery(Checkout Checkout) {
@@ -165,6 +204,7 @@ namespace CraigCarRental {
                     uzr = new User(Convert.ToInt32(dr["UserID"])," "," ", Convert.ToString(dr["Username"]), " ", Convert.ToString(dr["UserType"]));
                 }
                 dr.Close();
+                connection.Close();
                 return uzr;
             }
             catch (Exception){

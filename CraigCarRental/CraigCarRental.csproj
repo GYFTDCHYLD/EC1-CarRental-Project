@@ -528,6 +528,7 @@
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Invoice.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="AdminPanel.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -587,6 +588,12 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel.aspx.cs">
+      <DependentUpon>AdminPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel.aspx.designer.cs">
+      <DependentUpon>AdminPanel.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
