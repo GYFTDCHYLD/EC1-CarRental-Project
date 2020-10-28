@@ -17,6 +17,7 @@ using System.Web.UI.HtmlControls;
 namespace CraigCarRental {
 
     public partial class Products : System.Web.UI.Page {
+        User UZR;
         DataTable dt;
         DataRow dr;
         Cart cart = new Cart();
@@ -24,6 +25,18 @@ namespace CraigCarRental {
         DateTime StartDate, EndDate;
 
         public void Page_Load(object sender, EventArgs args) {
+            if (Session["LOGEDIN"] != null)
+                UZR = (User)Session["LOGEDIN"];
+
+            try {
+                if (!UZR.Username.Equals("")){
+
+                }
+            }
+            catch (Exception) {
+                Response.Redirect("Default.aspx");
+            }
+
             if (!IsPostBack) { 
                 DatabaseManager db = new DatabaseManager();
                 PRODUCTS.DataSource = db.ProductQuery();
@@ -51,8 +64,7 @@ namespace CraigCarRental {
             if (days > 0) {
                 string buttonId = arg.CommandArgument.ToString();// get the "ID" from the pressed button
                 DatabaseManager DB = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
-
-                Rental rentalData = new Rental(new User(1, "Craig", "Reid", "Admin"), DB.SelectCarQuery(buttonId), StartDate, EndDate);
+                Rental rentalData = new Rental(UZR, DB.SelectCarQuery(buttonId), StartDate, EndDate);
                 DB.RentalQuery(rentalData);
 
                 Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself

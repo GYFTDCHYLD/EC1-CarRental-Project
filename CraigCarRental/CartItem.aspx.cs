@@ -15,14 +15,16 @@ using MySql.Data.MySqlClient;
 using System.ComponentModel;
 
 namespace CraigCarRental{
-    public partial class CartItem : System.Web.UI.Page
-    {
+    public partial class CartItem : System.Web.UI.Page {
         DataTable dt;
         Cart cart = new Cart();
-        int UserID = 1;
+        User UZR = new User();
         DatabaseManager Database = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
 
         protected void Page_Load(object sender, EventArgs args) {
+            if (Session["LOGEDIN"] != null)
+                UZR = (User)Session["LOGEDIN"];
+
             if (Session["CHECKOUT"] == null) {
                 dt = new DataTable();
                 dt.Columns.Add("UserID");
@@ -52,7 +54,7 @@ namespace CraigCarRental{
         }
 
         public void FillGrid() {
-            dt = Database.CartQuery(UserID);
+            dt = Database.CartQuery(UZR.UserID);
             Session["CHECKOUT"] = dt;
             GridView1.DataSource = dt;
             GridView1.DataBind();
@@ -62,9 +64,9 @@ namespace CraigCarRental{
 
         public void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs args) {
 
-            dt = Database.CartQuery(UserID);
+            dt = Database.CartQuery(UZR.UserID);
 
-            Database.DeleteRentalQuery(dt.Rows[args.RowIndex][1].ToString(), UserID, (DateTime)dt.Rows[args.RowIndex][4], (DateTime)dt.Rows[args.RowIndex][5]);
+            Database.DeleteRentalQuery(dt.Rows[args.RowIndex][1].ToString(), UZR.UserID, (DateTime)dt.Rows[args.RowIndex][4], (DateTime)dt.Rows[args.RowIndex][5]);
 
             dt.Rows[args.RowIndex].Delete();
 
@@ -86,14 +88,14 @@ namespace CraigCarRental{
                 Checkout.checkouTime = checkoutTime;
                 Checkout.OrderID = dt.Rows[row][0] + checkoutID.ToString();// user id plus timestamp to make unique order-id
                 Checkout.CarID = dt.Rows[row][1].ToString();
-                Checkout.Username = "Craig";
+                Checkout.Username = UZR.Username;
                 Checkout.StartDate = (DateTime)dt.Rows[row][4];
                 Checkout.EndDate = (DateTime)dt.Rows[row][5];
                 Checkout.NumberOfDays = Int32.Parse(dt.Rows[row][6].ToString());
                 Checkout.Subtotal = float.Parse(dt.Rows[row][7].ToString());
                 Database.checkoutQuery(Checkout);
 
-                Database.DeleteRentalQuery(dt.Rows[row][1].ToString(), UserID, (DateTime)dt.Rows[row][4], (DateTime)dt.Rows[row][5]);
+                Database.DeleteRentalQuery(dt.Rows[row][1].ToString(), UZR.UserID, (DateTime)dt.Rows[row][4], (DateTime)dt.Rows[row][5]);
                 dt.Rows[row].Delete();
                 row -= 1;
             }

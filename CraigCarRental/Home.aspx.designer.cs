@@ -11,16 +11,13 @@
 namespace CraigCarRental {
 	
 	
-	public partial class Default {
+	public partial class Home {
 		
 		protected System.Web.UI.WebControls.Content body;
-		
-		protected System.Web.UI.WebControls.Label loginLabel;
-		
-		protected System.Web.UI.WebControls.TextBox Username;
-		
-		protected System.Web.UI.WebControls.TextBox Pasword;
-		
-		protected System.Web.UI.WebControls.Button LoginButton;
+		protected global::System.Web.UI.WebControls.TextBox StartDate1;
+		protected global::System.Web.UI.WebControls.TextBox StartDate2;
+		protected global::System.Web.UI.WebControls.TextBox EndDate1;
+		protected global::System.Web.UI.WebControls.TextBox EndDate2;
+
 	}
 }

@@ -30,10 +30,11 @@ namespace CraigCarRental {
         }
 
         public void openCart(object sender, EventArgs args){
-            if (dt.Rows.Count > 0)
-                Response.Redirect("CartItem.aspx");// redirect to cart id its not empty
-            else
-                cartLabel.Text = "Cart is empty";
+            if (Session["LOGEDIN"] != null)
+                if (dt.Rows.Count > 0)
+                    Response.Redirect("CartItem.aspx");// redirect to cart id its not empty
+                else
+                    cartLabel.Text = "Cart is empty";
         }
     }
 } 
