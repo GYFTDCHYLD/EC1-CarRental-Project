@@ -14,6 +14,11 @@ namespace CraigCarRental {
 
         }
 
+        public Checkout(DateTime Start, DateTime End){
+            this.StartDate = Start;
+            this.EndDate = End;
+        }
+
         public Checkout(DateTime check, string OID, string CID, string User, DateTime Start, DateTime End, int Days, float Sub){
             this.checkouTime = check;
             this.OrderID = OID;

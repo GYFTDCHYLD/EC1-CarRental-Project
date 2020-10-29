@@ -64,10 +64,13 @@ namespace CraigCarRental {
             if (days > 0) {
                 string buttonId = arg.CommandArgument.ToString();// get the "ID" from the pressed button
                 DatabaseManager DB = new DatabaseManager();// creating an object of the database clsss in order to use it's method in this class
-                Rental rentalData = new Rental(UZR, DB.SelectCarQuery(buttonId), StartDate, EndDate);
-                DB.RentalQuery(rentalData);
-
-                Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
+                if(DB.isAvailable(buttonId, StartDate)){
+                    Rental rentalData = new Rental(UZR, DB.SelectCarQuery(buttonId), StartDate, EndDate);
+                    DB.RentalQuery(rentalData);
+                    Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
+                }else{
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Car isn't available for selected date');", true);
+                } 
             }
             else {
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Enter Start and End Date before adding item to cart');", true);

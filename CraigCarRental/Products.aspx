@@ -11,6 +11,8 @@
                     
                         <asp:Image CssClass="productImage" runat="server" ImageUrl='<%#Eval("productImage") %>'></asp:Image>
                    
+                        <br>Product ID: <%#Eval("productID") %>
+                        
                         <br>Product Name: <%#Eval("productName") %>
                    
                         <br>Price : $<%#Eval("productPrice") %>

@@ -239,5 +239,39 @@ namespace CraigCarRental {
 
             }
         }
+
+        public bool isAvailable(string CarID, DateTime Start){
+            Checkout checkout = new Checkout();
+            DateTime Yesterday = DateTime.Now.AddDays(-1);
+
+            if (Start <= Yesterday)
+                return false;
+
+            DateTime Returning = checkout.EndDate;
+            bool availability = false;
+            try{
+                MySqlConnection connection = new MySqlConnection(ConnectionString);
+                MySqlCommand command = new MySqlCommand("checkAvailableDate", connection); 
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("_CarID", MySqlDbType.String).Value = CarID;
+                connection.Open();
+                MySqlDataReader dr = command.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dr.Read()){
+                    checkout = new Checkout(Convert.ToDateTime(dr["StartDate"]), Convert.ToDateTime(dr["EndDate"]));
+    
+                    Returning = checkout.EndDate;
+                    if (Start < Returning)
+                        availability = false;
+                    else 
+                        availability = true;
+                }
+                dr.Close();
+                connection.Close();
+            }
+            catch (Exception){
+
+            }
+            return availability;
+        }
     }
 }

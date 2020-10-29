@@ -5,10 +5,10 @@
     <div class="row" style="text-align:center">
         <div class="col-md-6" > 
             <hr>
-            <div class="featuredProduct" id="SKU_1245">
+            <div class="featuredProduct">
                 <img class="featuredImage" alt = ""  width = "100%" src="Images/Products/BMW/bmw1.png" />
                 <label>
-                    ID: SKU-1245 
+                    ID: SKU1245 
                     <br>Name: BMW X6
                     <br>Description: 
                     <br>Category: BMW
@@ -24,10 +24,10 @@
         </div> 
         <div class="col-md-6"> 
             <hr>
-            <div class="featuredProduct" id="SKU_4145">
+            <div class="featuredProduct">
                 <img class="featuredImage"  alt = "" width = "100%" src="Images/Products/AUDI/audi1.png"  />
                 <label>
-                    ID: SKU-4145 
+                    ID: SKU4143 
                     <br>Name: Audi TT coupe
                     <br>Description: 
                     <br>Category: Audi
@@ -36,7 +36,7 @@
                 <p>
                     <asp:TextBox CssClass="dataInput" ID="StartDate2" placeholder="Start Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate"></asp:TextBox>
                     <asp:TextBox CssClass="dataInput" ID="EndDate2" placeholder="End Date" runat="server" ReadOnly="true" OnTextChanged = "ProcessDate" ></asp:TextBox>
-                    <asp:button class="addToCartButton" id="SKU4145" Text = "ADD TO CART" runat = "server" OnClick="Clicked" />
+                    <asp:button class="addToCartButton" id="SKU4143" Text = "ADD TO CART" runat = "server" OnClick="Clicked" />
                 </p><br>
             </div>    
         </div> 
