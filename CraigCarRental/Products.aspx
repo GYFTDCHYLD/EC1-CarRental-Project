@@ -3,6 +3,7 @@
 
  <asp:Content ID="body" ContentPlaceHolderID="bodyContent" runat="server">
     <h2> Products </h2> 
+    <hr> <h6><asp:label class="RESPONSE" id="RESPONSE" runat="server"></asp:label> </h6> <hr>
     <div  class=" row" style="text-align:center">
          <asp:DataList id= "PRODUCTS" runat="server" OnItemCommand="PRODUCTS_ItemCommand" RepeatColumns = "3"  CssClass="" CellPadding = "2">
             <ItemTemplate  >
@@ -25,8 +26,7 @@
                             <input type="text" name="StartDate1" class="dataInput" id="StartDate1" placeholder="Start Date" ReadOnly="true" />
                             <input type="text" name="EndDate1"   class="dataInput" id="EndDate1"   placeholder="End Date"   ReadOnly="true" />
                             <asp:Button  class="addToCartButton"  ID="addToCartButton" runat="server" CommandName="addToCart" CommandArgument='<%#Eval("productID")%>' Text="ADD TO CART" CausesValidation="True" UseSubmitBehavior="false" />
-                        </p> 
-                        
+                        </p>
                     </div>    
                 </table>
             </ItemTemplate> 

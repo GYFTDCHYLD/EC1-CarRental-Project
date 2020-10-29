@@ -376,3 +376,11 @@ h2 {
     text-align: center;
     border: 1px solid black;
 }
+
+.RESPONSE{
+    text-align:center;
+    margin-top:-12px;
+    height:3px;
+    font-weight:bold;
+    color:red;
+}

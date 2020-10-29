@@ -18,5 +18,7 @@ namespace CraigCarRental {
 		protected System.Web.UI.WebControls.DataList PRODUCTS;
 		
 		protected System.Web.UI.WebControls.Button addToCartButton;
+
+		protected System.Web.UI.WebControls.Label RESPONSE;
 	}
 }

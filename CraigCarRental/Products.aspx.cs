@@ -25,6 +25,7 @@ namespace CraigCarRental {
         DateTime StartDate, EndDate;
 
         public void Page_Load(object sender, EventArgs args) {
+            RESPONSE.Text = "";
             if (Session["LOGEDIN"] != null)
                 UZR = (User)Session["LOGEDIN"];
 
@@ -67,9 +68,10 @@ namespace CraigCarRental {
                 if(DB.isAvailable(buttonId, StartDate)){
                     Rental rentalData = new Rental(UZR, DB.SelectCarQuery(buttonId), StartDate, EndDate);
                     DB.RentalQuery(rentalData);
+                    RESPONSE.Text = "";
                     Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
                 }else{
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Car isn't available for selected date');", true);
+                    RESPONSE.Text = "Car isn't available for selected date";
                 } 
             }
             else {
