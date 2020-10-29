@@ -28,5 +28,17 @@ namespace CraigCarRental {
 		protected System.Web.UI.WebControls.Label Label5;
 		
 		protected System.Web.UI.WebControls.Image Image1;
+		
+		protected System.Web.UI.WebControls.TextBox id;
+		
+		protected System.Web.UI.WebControls.TextBox name;
+		
+		protected System.Web.UI.WebControls.TextBox price;
+		
+		protected System.Web.UI.WebControls.TextBox category;
+		
+		protected System.Web.UI.WebControls.TextBox description;
+		
+		protected System.Web.UI.WebControls.TextBox image;
 	}
 }

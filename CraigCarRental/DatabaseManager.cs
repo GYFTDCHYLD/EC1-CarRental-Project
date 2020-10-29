@@ -212,5 +212,32 @@ namespace CraigCarRental {
             }
         return uzr;
         }
+
+
+        public void addUpdateCar(Car car, string selection) {
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlCommand sqlCmd;
+                    if(selection.Equals("ADD"))
+                        sqlCmd = new MySqlCommand("AddCar", sqlConnection);
+                    else
+                        sqlCmd = new MySqlCommand("updateCar", sqlConnection);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("_CarID", car.productID);
+                    sqlCmd.Parameters.AddWithValue("_CarName", car.productName);
+                    sqlCmd.Parameters.AddWithValue("_Price", car.productPrice);
+                    sqlCmd.Parameters.AddWithValue("_Category", car.Category);
+                    sqlCmd.Parameters.AddWithValue("_Discription", car.Description);
+                    sqlCmd.Parameters.AddWithValue("_productImage", car.productImage);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }

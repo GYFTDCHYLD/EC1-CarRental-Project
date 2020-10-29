@@ -2,7 +2,7 @@
 
 <asp:Content ID="body" ContentPlaceHolderID="bodyContent" runat="server">
         <h2>ADMIN PANEL</h2> 
-    <asp:GridView CssClass = "GridView" id="GridView2" runat="server" AutoGenerateColumns="false" OnRowDeleting="GridView2_RowDeleting" > 
+    <asp:GridView CssClass = "GridView" id="GridView2" runat="server" AutoGenerateColumns="false" OnRowDeleting="AdminGridUpdate" > 
         <Columns>
             <asp:TemplateField HeaderText="ID">
                 <ItemTemplate>
@@ -33,10 +33,20 @@
                 <ItemTemplate>
                     <asp:Image class="tableRow" id="Image1" Width="80" runat="server" ImageUrl='<%#Bind("productImage") %>'></asp:Image>
                 </ItemTemplate> 
-            </asp:TemplateField>
-             
-            <asp:CommandField ShowDeleteButton = "true" DeleteText="Remove" ButtonType="Link" />  
+            </asp:TemplateField> 
+            <asp:CommandField ShowDeleteButton = "true" DeleteText="SELECT" ButtonType="Link" />  
         </Columns>
     </asp:GridView> 
+    <div class = "UptadeFieldDiv">
+        <asp:TextBox class = "updateField" id="id" placeholder="id"  runat="server" ></asp:TextBox> 
+        <asp:TextBox class = "updateField" id="name" placeholder="name"  runat="server" ></asp:TextBox>
+        <asp:TextBox class = "updateField" id="price" placeholder="price"  runat="server" ></asp:TextBox>  
+        <asp:TextBox class = "updateField" id="category" placeholder="category"  runat="server" ></asp:TextBox> 
+        <asp:TextBox class = "updateField" id="description" placeholder="description"  runat="server" ></asp:TextBox> 
+        <asp:TextBox class = "updateField" id="image" placeholder="image"  runat="server" ></asp:TextBox><br>
+        <asp:button style="" id="add" Text = "ADD" runat = "server" OnClick="addData" /> 
+        <asp:button style="" id="update" Text = "UPDATE" runat = "server"  UseSubmitBehavior="false" OnClick="updateData"  /> 
+        <asp:button style="" id="delete" Text = "DELETE" runat = "server"  UseSubmitBehavior="false" OnClick="deleteData"  /> 
+    </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
  </asp:Content>

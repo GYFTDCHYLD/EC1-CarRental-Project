@@ -6,7 +6,8 @@ namespace CraigCarRental {
         public string productName { get; set; } 
         public float productPrice { get; set; }
         public string Category { get; set; }
-        public string Description { get; set; } 
+        public string Description { get; set; }
+        public string productImage { get; set; }
 
         public Car() {
             productID = "";
