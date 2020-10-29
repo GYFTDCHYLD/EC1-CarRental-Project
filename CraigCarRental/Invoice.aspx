@@ -37,7 +37,6 @@
                     <asp:Label class="tableRow" id ="Label7" runat="server" Text = '<%# Bind("subTotal") %>'></asp:Label> 
                 </ItemTemplate> 
             </asp:TemplateField>
-            <asp:CommandField ShowDeleteButton = "true" DeleteText="Remove" ButtonType="Link" />  
         </Columns>
     </asp:GridView> 
 
