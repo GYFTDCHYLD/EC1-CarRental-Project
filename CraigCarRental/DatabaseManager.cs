@@ -248,7 +248,7 @@ namespace CraigCarRental {
                 return false;
 
             DateTime Returning = checkout.EndDate;
-            bool availability = false;
+            bool availability = true;
             try{
                 MySqlConnection connection = new MySqlConnection(ConnectionString);
                 MySqlCommand command = new MySqlCommand("checkAvailableDate", connection); 
