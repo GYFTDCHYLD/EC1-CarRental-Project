@@ -11,18 +11,22 @@
 namespace CraigCarRental {
 	
 	
-	public partial class Default {
+	public partial class SignUp {
 		
 		protected System.Web.UI.WebControls.Content body;
 		
 		protected System.Web.UI.WebControls.Label loginLabel;
 		
+		protected System.Web.UI.WebControls.TextBox firstName;
+		
+		protected System.Web.UI.WebControls.TextBox lastName;
+		
 		protected System.Web.UI.WebControls.TextBox Username;
 		
 		protected System.Web.UI.WebControls.TextBox Pasword;
 		
-		protected System.Web.UI.WebControls.Button LoginButton;
+		protected System.Web.UI.WebControls.TextBox confirmPasword;
 		
-		protected System.Web.UI.WebControls.Button SignUp;
+		protected System.Web.UI.WebControls.Button SIGNUP;
 	}
 }

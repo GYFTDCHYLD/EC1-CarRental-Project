@@ -384,3 +384,8 @@ h2 {
     font-weight:bold;
     color:red;
 }
+
+.form {
+    text-align:center;
+    float:unset;
+}

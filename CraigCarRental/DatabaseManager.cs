@@ -189,7 +189,28 @@ namespace CraigCarRental {
             return dataSet;
         }
 
-       
+        public void signUp(User user) { 
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlCommand sqlCmd = new MySqlCommand("AddUser", sqlConnection);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("_UserID", user.UserID);
+                    sqlCmd.Parameters.AddWithValue("_Firstname", user.Firstname);
+                    sqlCmd.Parameters.AddWithValue("_Lastname", user.Lastname);
+                    sqlCmd.Parameters.AddWithValue("_Username", user.Username);
+                    sqlCmd.Parameters.AddWithValue("_Passwrd", user.Password);
+                    sqlCmd.Parameters.AddWithValue("_Type", user.UserType);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+                }
+
+            }
+            catch (Exception){
+
+            }
+        }
+
         public User Login(String UzrName, String Pswrd){
             User uzr = new User();
             try {
