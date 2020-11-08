@@ -29,17 +29,19 @@
              <div class="container-fluid" id = "container">
                 <div class="jumbotron" id="header"> 
                     <img id="logo" alt = "logo image" src="Images/logo1.png"/>
-                    
-                    <div id="nav">
+                    <div id="nav" runat="server">
+                        <center>
                         <asp:button class = "HomeButton" id = "HomeButton" PostBackUrl = "Home.aspx" runat = "server" Text = "HOME" /> 
                         <asp:button class = "button" id = "ProductsButton" PostBackUrl = "Products.aspx" runat = "server" Text = "PRODUCTS" /> 
                         <asp:button class = "button" id = "ContactButton" PostBackUrl = "Contact.aspx" runat = "server" Text = "CONTACT" /> 
                         <asp:button class = "AboutButton" id = "AboutButton" PostBackUrl = "About.aspx" runat = "server" Text = "ABOUT" /> 
+                        </center>
                     </div>
-                    
-                     <asp:button  id="ShoppingCart" runat = "server" Text = ""  class="Cart"  OnClick="openCart" />
-                    <asp:Label id="cartLabel" CssClass = "cartLabel"  runat="server" />
-                    
+                    <div id="LoginOutButton" runat="server">
+                        <asp:button  id="ShoppingCart" runat = "server" Text = ""  class="Cart"  OnClick="openCart" />
+                        <asp:Button  class="LoginOutButton"  ID="LoginOut" runat="server"  Text="logout"  OnClick="logout"/>
+                        <asp:Label id="cartLabel" CssClass = "cartLabel"  runat="server" />
+                    </div> 
                 </div>
                 
                 <asp:ContentPlaceHolder id="bodyContent" runat="server">  </asp:ContentPlaceHolder>

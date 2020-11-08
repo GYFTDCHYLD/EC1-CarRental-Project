@@ -3,7 +3,7 @@
 <asp:Content ID="body" ContentPlaceHolderID="bodyContent" runat="server">
     <h2>SignUp</h2> 
     <div class="form">
-        <asp:Label class=""  id ="loginLabel" runat="server" Text = ""/> 
+        <asp:Label class="" Style="color: red;" id ="loginLabel" runat="server" Text = ""/> 
         <asp:TextBox TextMode="SingleLine" type="text" name="firstName" CssClass="" id="firstName" placeholder="First Name" runat="server" ></asp:TextBox> <br>
         <asp:TextBox TextMode="SingleLine" type="text" name="lastName" CssClass="" id="lastName" placeholder="Last Name" runat="server" ></asp:TextBox> <br>
         <asp:TextBox TextMode="SingleLine" type="text" name="Username" CssClass="" id="Username" placeholder="Username" runat="server" ></asp:TextBox> <br>

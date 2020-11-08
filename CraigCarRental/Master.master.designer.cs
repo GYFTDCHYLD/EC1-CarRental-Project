@@ -13,6 +13,8 @@ namespace CraigCarRental {
 
 	public partial class Master {
 
+		protected System.Web.UI.HtmlControls.HtmlGenericControl LoginOutButton;
+
 		protected System.Web.UI.HtmlControls.HtmlButton HomeButton;
 
 		protected System.Web.UI.HtmlControls.HtmlButton ProductsButton;
@@ -26,5 +28,7 @@ namespace CraigCarRental {
 		public global::System.Web.UI.WebControls.Button ShoppingCart;
 
 		protected global::System.Web.UI.WebControls.Label cartLabel;
+
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl nav;
 	}
 }

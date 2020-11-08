@@ -22,6 +22,12 @@ namespace CraigCarRental {
             cartLabel.Text = "";
             if (Session["LOGEDIN"] != null){
                 UZR = (User)Session["LOGEDIN"];
+                LoginOutButton.Visible = true; 
+                nav.Visible = true;
+            }
+            else{
+                LoginOutButton.Visible = false;
+                nav.Visible = false; 
             }
             if (Session["CART"] != null) {
                 dt = Database.CartQuery(UZR.UserID);
@@ -37,6 +43,12 @@ namespace CraigCarRental {
                     Response.Redirect("CartItem.aspx");// redirect to cart id its not empty
                 else
                     cartLabel.Text = "Cart is empty";
+        }
+        public void logout(object sender, EventArgs args){
+            if (Session["LOGEDIN"] != null)
+                Session.Abandon();
+                Response.Redirect("Default.aspx");// redirect to cart id its not empty
+
         }
     }
 } 

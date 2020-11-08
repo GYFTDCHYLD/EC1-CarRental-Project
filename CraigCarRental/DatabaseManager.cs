@@ -126,6 +126,25 @@ namespace CraigCarRental {
          return table;
         }
 
+        public DataTable OrderHistoryQuery(String userName) {
+            DataTable table = new DataTable();
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlDataAdapter sqlData = new MySqlDataAdapter("RetrieveShoppingHistory", sqlConnection);
+                    sqlData.SelectCommand.Parameters.AddWithValue("_UserName", userName.Trim()); 
+                    sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    sqlData.Fill(table);
+                    sqlConnection.Close();
+                }
+
+            }
+            catch (Exception) {
+
+            }
+            return table;
+        }
+
 
         public DataTable AdminQuery() {
             DataTable table = new DataTable();

@@ -3,6 +3,7 @@
 
  <asp:Content ID="body" ContentPlaceHolderID="bodyContent" runat="server">
     <h2> Products </h2> 
+     <asp:button style="" id="orderHistory" Text = "ORDER HISTORY" runat = "server" PostBackUrl = "OrderHistory.aspx" /> 
     <hr> <h6><asp:label class="RESPONSE" id="RESPONSE" runat="server"></asp:label> </h6> <hr>
     <div  class=" row" style="text-align:center">
          <asp:DataList id= "PRODUCTS" runat="server" OnItemCommand="PRODUCTS_ItemCommand" RepeatColumns = "3"  CssClass="" CellPadding = "2">
