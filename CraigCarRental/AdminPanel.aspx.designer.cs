@@ -15,8 +15,10 @@ namespace CraigCarRental {
 		
 		protected System.Web.UI.WebControls.Content body;
 		
-		protected System.Web.UI.WebControls.GridView GridView2;
-		
+		protected System.Web.UI.WebControls.GridView ProductGrid;
+
+		protected System.Web.UI.WebControls.GridView UserGrid;
+
 		protected System.Web.UI.WebControls.Label Label1;
 		
 		protected System.Web.UI.WebControls.Label Label2;

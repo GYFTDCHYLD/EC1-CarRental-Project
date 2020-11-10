@@ -5,36 +5,36 @@
      <asp:Label id="deletedId" CssClass = "cartLabel"  runat="server" />
     <hr>
     
-    <asp:GridView CssClass = "GridView" id="GridView1" runat="server" AutoGenerateColumns="false" > 
+    <asp:GridView CssClass = "GridView" id="orderHistory" runat="server" AutoGenerateColumns="false" > 
         <Columns>
+            <asp:TemplateField HeaderText="ORDER ID">
+                <ItemTemplate>
+                    <asp:Label class="tableRow" id ="Label4h" runat="server" Text = '<%# Bind("OrderID") %>'></asp:Label> 
+                </ItemTemplate> 
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="PRODUCT IMAGE">
                 <ItemTemplate>
-                    <asp:Image class="tableRow" id="Image1" Width="80" runat="server" ImageUrl='<%#Bind("productImage") %>'></asp:Image>
+                    <asp:Image class="tableRow" id="Imageh" Width="80" runat="server" ImageUrl='<%#Bind("productImage") %>'></asp:Image>
                 </ItemTemplate> 
             </asp:TemplateField>
             <asp:TemplateField HeaderText="UNIT PRICE">
                 <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label3" runat="server" Text = '<%# Bind("productPrice") %>'></asp:Label> 
+                    <asp:Label class="tableRow" id ="Label1h" runat="server" Text = '<%# Bind("productPrice") %>'></asp:Label> 
                 </ItemTemplate> 
             </asp:TemplateField> 
             <asp:TemplateField HeaderText="START DATE">
                 <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label4" runat="server" Text = '<%# Bind("startDate") %>'></asp:Label> 
+                    <asp:Label class="tableRow" id ="Label2h" runat="server" Text = '<%# Bind("startDate") %>'></asp:Label> 
                 </ItemTemplate> 
             </asp:TemplateField>
              <asp:TemplateField HeaderText="END DATE">
                 <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label5" runat="server" Text = '<%# Bind("endDate") %>'></asp:Label> 
-                </ItemTemplate> 
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="DAYS RENTED">
-                <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label6" runat="server" Text = '<%# Bind("NumberOfDays") %>'></asp:Label> 
+                    <asp:Label class="tableRow" id ="Label3h" runat="server" Text = '<%# Bind("endDate") %>'></asp:Label> 
                 </ItemTemplate> 
             </asp:TemplateField>
             <asp:TemplateField HeaderText="SUB-TOTAL">
                 <ItemTemplate>
-                    <asp:Label class="tableRow" id ="Label7" runat="server" Text = '<%# Bind("subTotal") %>'></asp:Label> 
+                    <asp:Label class="tableRow" id ="Label5h" runat="server" Text = '<%# Bind("subTotal") %>'></asp:Label> 
                 </ItemTemplate> 
             </asp:TemplateField>
         </Columns>

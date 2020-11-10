@@ -17,18 +17,18 @@ namespace CraigCarRental {
 		
 		protected System.Web.UI.WebControls.Label deletedId;
 		
-		protected System.Web.UI.WebControls.GridView GridView1;
+		protected System.Web.UI.WebControls.GridView orderHistory;
 		
-		protected System.Web.UI.WebControls.Image Image1;
+		protected System.Web.UI.WebControls.Label Label4h;
 		
-		protected System.Web.UI.WebControls.Label Label3;
+		protected System.Web.UI.WebControls.Image Imageh;
 		
-		protected System.Web.UI.WebControls.Label Label4;
+		protected System.Web.UI.WebControls.Label Label1h;
 		
-		protected System.Web.UI.WebControls.Label Label5;
+		protected System.Web.UI.WebControls.Label Label2h;
 		
-		protected System.Web.UI.WebControls.Label Label6;
+		protected System.Web.UI.WebControls.Label Label3h;
 		
-		protected System.Web.UI.WebControls.Label Label7;
+		protected System.Web.UI.WebControls.Label Label5h;
 	}
 }

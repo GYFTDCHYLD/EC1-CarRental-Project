@@ -126,13 +126,31 @@ namespace CraigCarRental {
          return table;
         }
 
-        public DataTable OrderHistoryQuery(String userName) {
+        public DataTable OrderHistoryQuery(string userName) { 
             DataTable table = new DataTable();
             try {
                 using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
                     sqlConnection.Open();
                     MySqlDataAdapter sqlData = new MySqlDataAdapter("RetrieveShoppingHistory", sqlConnection);
                     sqlData.SelectCommand.Parameters.AddWithValue("_UserName", userName.Trim()); 
+                    sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    sqlData.Fill(table);
+                    sqlConnection.Close();
+                }
+
+            }
+            catch (Exception) {
+
+            }
+            return table;
+        }
+
+        public DataTable UsersQuery(){
+            DataTable table = new DataTable();
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlDataAdapter sqlData = new MySqlDataAdapter("RetrieveUsers", sqlConnection);
                     sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
                     sqlData.Fill(table);
                     sqlConnection.Close();
@@ -214,7 +232,6 @@ namespace CraigCarRental {
                     sqlConnection.Open();
                     MySqlCommand sqlCmd = new MySqlCommand("AddUser", sqlConnection);
                     sqlCmd.CommandType = CommandType.StoredProcedure;
-                    sqlCmd.Parameters.AddWithValue("_UserID", user.UserID);
                     sqlCmd.Parameters.AddWithValue("_Firstname", user.Firstname);
                     sqlCmd.Parameters.AddWithValue("_Lastname", user.Lastname);
                     sqlCmd.Parameters.AddWithValue("_Username", user.Username);

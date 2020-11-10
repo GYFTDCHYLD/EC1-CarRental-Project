@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace CraigCarRental {
     public partial class AdminPanel : System.Web.UI.Page {
-        DataTable dt;
+        DataTable Cdt, Udt; 
         Cart cart = new Cart();
         User UZR = new User();
         Car car = new Car();
@@ -21,35 +21,66 @@ namespace CraigCarRental {
             if (!UZR.UserType.Equals("Manager"))
                 Response.Redirect("Default.aspx");
 
-            if (Session["DATA"] == null) {
-                dt = new DataTable();
-                dt.Columns.Add("productID");
-                dt.Columns.Add("productName");
-                dt.Columns.Add("productPrice");
-                dt.Columns.Add("Category");
-                dt.Columns.Add("Description");
-                dt.Columns.Add("productImage");
-                Session["DATA"] = dt;
+            if (Session["CDATA"] == null) {
+                Cdt = new DataTable();
+                Cdt.Columns.Add("productID");
+                Cdt.Columns.Add("productName");
+                Cdt.Columns.Add("productPrice");
+                Cdt.Columns.Add("Category");
+                Cdt.Columns.Add("Description");
+                Cdt.Columns.Add("productImage");
+                Session["CDATA"] = Cdt;
             }
-            if (Session["DATA"] != null) {
-                FillGrid();
+
+            if (Session["UDATA"] == null) {
+                Udt = new DataTable();
+                Udt.Columns.Add("UserID");
+                Udt.Columns.Add("Firstname");
+                Udt.Columns.Add("Lastname");
+                Udt.Columns.Add("Username");
+                Udt.Columns.Add("Passwrd");
+                Udt.Columns.Add("UserType");
+                Session["UDATA"] = Udt; 
+            }
+            if (Session["CDATA"] != null) {
+                FillGridC();
+            }
+            if (Session["UDATA"] != null) {
+                FillGridU();
             }
         }
 
-        public void FillGrid() {
-            dt = Database.AdminQuery();
-            Session["DATA"] = dt;
-            GridView2.DataSource = dt;
-            GridView2.DataBind();
+        public void FillGridC() {
+            Cdt = Database.AdminQuery();
+            Session["CDATA"] = Cdt;
+            ProductGrid.DataSource = Cdt;
+            ProductGrid.DataBind();
+        }
+
+        public void FillGridU() {
+            Cdt = Database.UsersQuery();
+            Session["UDATA"] = Cdt;
+            UserGrid.DataSource = Cdt;
+            UserGrid.DataBind();
         }
 
         public void AdminGridUpdate(object sender, GridViewDeleteEventArgs args){
-            id.Text = dt.Rows[args.RowIndex][0].ToString();
-            name.Text = dt.Rows[args.RowIndex][1].ToString();
-            price.Text = dt.Rows[args.RowIndex][2].ToString();
-            category.Text = dt.Rows[args.RowIndex][3].ToString();
-            description.Text = dt.Rows[args.RowIndex][4].ToString();
-            image.Text = dt.Rows[args.RowIndex][5].ToString();
+            id.Text = Cdt.Rows[args.RowIndex][0].ToString();
+            name.Text = Cdt.Rows[args.RowIndex][1].ToString();
+            price.Text = Cdt.Rows[args.RowIndex][2].ToString();
+            category.Text = Cdt.Rows[args.RowIndex][3].ToString();
+            description.Text = Cdt.Rows[args.RowIndex][4].ToString();
+            image.Text = Cdt.Rows[args.RowIndex][5].ToString();
+        }
+
+        
+        public void UserGridUpdate(object sender, GridViewDeleteEventArgs args){
+            id.Text = Cdt.Rows[args.RowIndex][0].ToString();
+            name.Text = Cdt.Rows[args.RowIndex][1].ToString();
+            price.Text = Cdt.Rows[args.RowIndex][2].ToString();
+            category.Text = Cdt.Rows[args.RowIndex][3].ToString();
+            description.Text = Cdt.Rows[args.RowIndex][4].ToString();
+            image.Text = Cdt.Rows[args.RowIndex][5].ToString();
         }
 
         public void addData(object sender, EventArgs args) {

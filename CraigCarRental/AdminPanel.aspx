@@ -2,7 +2,7 @@
 
 <asp:Content ID="body" ContentPlaceHolderID="bodyContent" runat="server">
         <h2>ADMIN PANEL</h2> 
-    <asp:GridView CssClass = "GridView" id="GridView2" runat="server" AutoGenerateColumns="false" OnRowDeleting="AdminGridUpdate" > 
+    <asp:GridView CssClass = "GridView" id="ProductGrid" runat="server" AutoGenerateColumns="false" OnRowDeleting="AdminGridUpdate" > 
         <Columns>
             <asp:TemplateField HeaderText="ID">
                 <ItemTemplate>
@@ -48,5 +48,41 @@
         <asp:button style="" id="update" Text = "UPDATE" runat = "server"  UseSubmitBehavior="false" OnClick="updateData"  /> 
         <asp:button style="" id="delete" Text = "DELETE" runat = "server"  UseSubmitBehavior="false" OnClick="deleteData"  /> 
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+      <asp:GridView CssClass = "GridView" id="UserGrid" runat="server" AutoGenerateColumns="false" OnRowDeleting="UserGridUpdate" > 
+        <Columns>
+            <asp:TemplateField HeaderText="USER ID">
+                <ItemTemplate>
+                   <asp:Label class="tableRow" id="Label5" runat="server" Text='<%#Bind("UserID") %>'></asp:Label>
+                </ItemTemplate> 
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="FIRST NAME">
+                <ItemTemplate>
+                    <asp:Label class="tableRow" id="Label6" runat="server" Text='<%#Bind("Firstname") %>'></asp:Label>
+                </ItemTemplate> 
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="LAST NAME">
+                <ItemTemplate>
+                    <asp:Label class="tableRow" id="Label7" runat="server" Text='<%#Bind("Lastname") %>'></asp:Label>
+                </ItemTemplate> 
+            </asp:TemplateField>
+             <asp:TemplateField HeaderText="USERNAME">
+                <ItemTemplate>
+                    <asp:Label class="tableRow" id="Label8" runat="server" Text='<%#Bind("Username") %>'></asp:Label>
+                </ItemTemplate> 
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="PASSWORD">
+                <ItemTemplate>
+                    <asp:Label class="tableRow" id ="Label9" runat="server" Text = '<%# Bind("Passwrd") %>'></asp:Label> 
+                </ItemTemplate> 
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="USER TYPE">
+                <ItemTemplate>
+                    <asp:Label class="tableRow" id ="Label10" runat="server" Text = '<%# Bind("UserType") %>'></asp:Label> 
+                </ItemTemplate> 
+            </asp:TemplateField>
+            <asp:CommandField ShowDeleteButton = "true" DeleteText="SELECT" ButtonType="Link" />  
+        </Columns>
+    </asp:GridView> 
+    <br><br><br><br><br><br><br><br><br><br>
  </asp:Content>
