@@ -44,9 +44,9 @@
         <asp:TextBox class = "updateField" id="category" placeholder="category"  runat="server" ></asp:TextBox> 
         <asp:TextBox class = "updateField" id="description" placeholder="description"  runat="server" ></asp:TextBox> 
         <asp:TextBox class = "updateField" id="image" placeholder="image"  runat="server" ></asp:TextBox><br>
-        <asp:button style="" id="add" Text = "ADD" runat = "server" OnClick="addData" /> 
-        <asp:button style="" id="update" Text = "UPDATE" runat = "server"  UseSubmitBehavior="false" OnClick="updateData"  /> 
-        <asp:button style="" id="delete" Text = "DELETE" runat = "server"  UseSubmitBehavior="false" OnClick="deleteData"  /> 
+        <asp:button style="" id="add" Text = "ADD CAR" runat = "server" OnClick="addData" /> 
+        <asp:button style="" id="update" Text = "UPDATED CAR" runat = "server"  UseSubmitBehavior="false" OnClick="updateData"  /> 
+        <asp:button style="" id="delete" Text = "DELETED CAR" runat = "server"  UseSubmitBehavior="false" OnClick="deleteData"  /> 
     </div>
     <br><br><br><br><br><br><br><br>
       <asp:GridView CssClass = "GridView" id="UserGrid" runat="server" AutoGenerateColumns="false" OnRowDeleting="UserGridUpdate" > 
@@ -83,6 +83,17 @@
             </asp:TemplateField>
             <asp:CommandField ShowDeleteButton = "true" DeleteText="SELECT" ButtonType="Link" />  
         </Columns>
-    </asp:GridView> 
+    </asp:GridView>
+     <div class = "UptadeFieldDiv">
+        <asp:TextBox class = "updateField" id="uid" placeholder="id"  runat="server"  ReadOnly="true" ></asp:TextBox> 
+        <asp:TextBox class = "updateField" id="Fname" placeholder="Firstname"  runat="server" ></asp:TextBox>
+        <asp:TextBox class = "updateField" id="Lname" placeholder="Lastname"  runat="server" ></asp:TextBox>  
+        <asp:TextBox class = "updateField" id="Uname" placeholder="Username"  runat="server" ></asp:TextBox> 
+        <asp:TextBox class = "updateField" id="Pass" placeholder="Password"  runat="server" ></asp:TextBox> 
+        <asp:TextBox class = "updateField" id="type" placeholder="User Type"  runat="server" ></asp:TextBox> <br>
+        <asp:button style="" id="addUser" Text = "ADD USER" runat = "server" OnClick="addUserData" /> 
+        <asp:button style="" id="updateUser" Text = "UPDATE USER" runat = "server"  UseSubmitBehavior="false" OnClick="updateUserData"  /> 
+        <asp:button style="" id="deleteUser" Text = "DELETE USER" runat = "server"  UseSubmitBehavior="false" OnClick="deleteUserData"  /> 
+    </div>
     <br><br><br><br><br><br><br><br><br><br>
  </asp:Content>

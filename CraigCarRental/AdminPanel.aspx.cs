@@ -58,9 +58,9 @@ namespace CraigCarRental {
         }
 
         public void FillGridU() {
-            Cdt = Database.UsersQuery();
-            Session["UDATA"] = Cdt;
-            UserGrid.DataSource = Cdt;
+            Udt = Database.UsersQuery();
+            Session["UDATA"] = Udt;
+            UserGrid.DataSource = Udt;
             UserGrid.DataBind();
         }
 
@@ -75,12 +75,12 @@ namespace CraigCarRental {
 
         
         public void UserGridUpdate(object sender, GridViewDeleteEventArgs args){
-            id.Text = Cdt.Rows[args.RowIndex][0].ToString();
-            name.Text = Cdt.Rows[args.RowIndex][1].ToString();
-            price.Text = Cdt.Rows[args.RowIndex][2].ToString();
-            category.Text = Cdt.Rows[args.RowIndex][3].ToString();
-            description.Text = Cdt.Rows[args.RowIndex][4].ToString();
-            image.Text = Cdt.Rows[args.RowIndex][5].ToString();
+            uid.Text = Udt.Rows[args.RowIndex][0].ToString();
+            Fname.Text = Udt.Rows[args.RowIndex][1].ToString();
+            Lname.Text = Udt.Rows[args.RowIndex][2].ToString();
+            Uname.Text = Udt.Rows[args.RowIndex][3].ToString();
+            Pass.Text = Udt.Rows[args.RowIndex][4].ToString();
+            type.Text = Udt.Rows[args.RowIndex][5].ToString();
         }
 
         public void addData(object sender, EventArgs args) {
@@ -112,6 +112,39 @@ namespace CraigCarRental {
 
         public void deleteData(object sender, EventArgs args) {
             Database.DeleteCar(id.Text);
+            Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
+        }
+
+
+        public void addUserData(object sender, EventArgs args) {
+            try {
+                User user = new User(Fname.Text, Lname.Text, Uname.Text, Pass.Text, type.Text);
+                car.productImage = image.Text;
+                Database.signUp(user);
+                Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
+            }
+            catch (Exception) {
+
+
+            }
+
+        }
+
+        public void updateUserData(object sender, EventArgs args) {
+            try {
+                User user = new User(Convert.ToInt32(uid.Text), Fname.Text, Lname.Text, Uname.Text, Pass.Text, type.Text);
+                car.productImage = image.Text;
+                Database.UpdateUser(user);
+                Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
+            }
+            catch (Exception) {
+
+
+            }
+        }
+
+        public void deleteUserData(object sender, EventArgs args) {
+            Database.DeleteUser(Convert.ToInt32(uid.Text));
             Response.Redirect(Request.RawUrl.ToString());// refresh page /redirect to itself
         }
     }

@@ -106,6 +106,23 @@ namespace CraigCarRental {
             }
         }
 
+        public void DeleteUser(int UserID) {
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlCommand sqlCmd = new MySqlCommand("RemoveUser", sqlConnection);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("_UserID", UserID);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+                }
+
+            }
+            catch (Exception) {
+
+            }
+        }
+
 
         public DataTable CartQuery(int ID) { 
             DataTable table = new DataTable();
@@ -291,8 +308,28 @@ namespace CraigCarRental {
                     sqlConnection.Close();
                 }
             }
-            catch (Exception)
-            {
+            catch (Exception) {
+
+            }
+        }
+
+        public void UpdateUser(User user) {
+            try {
+                using (MySqlConnection sqlConnection = new MySqlConnection(ConnectionString)) {
+                    sqlConnection.Open();
+                    MySqlCommand sqlCmd = new MySqlCommand("updateUser", sqlConnection);
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.AddWithValue("_UserID", user.UserID);
+                    sqlCmd.Parameters.AddWithValue("_Fname", user.Firstname);
+                    sqlCmd.Parameters.AddWithValue("_Lname", user.Lastname);
+                    sqlCmd.Parameters.AddWithValue("_Uname", user.Username);
+                    sqlCmd.Parameters.AddWithValue("_Pass", user.Password);
+                    sqlCmd.Parameters.AddWithValue("_Type", user.UserType);
+                    sqlCmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+                }
+            }
+            catch (Exception)  {
 
             }
         }

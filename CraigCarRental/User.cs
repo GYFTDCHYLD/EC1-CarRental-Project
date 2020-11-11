@@ -27,6 +27,14 @@ namespace CraigCarRental {
             this.UserType = type;
         }
 
+        public User(string Fname, string Lname, string User, string Pwd, string type) {
+            this.Firstname = Fname;
+            this.Lastname = Lname;
+            this.Username = User;
+            this.Password = Pwd;
+            this.UserType = type;
+        }
+
         public User(int ID, string Fname, string Lname, string User, string Pwd, string type){
             this.UserID = ID;
             this.Firstname = Fname;

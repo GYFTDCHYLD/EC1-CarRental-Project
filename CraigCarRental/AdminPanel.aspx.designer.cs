@@ -42,5 +42,12 @@ namespace CraigCarRental {
 		protected System.Web.UI.WebControls.TextBox description;
 		
 		protected System.Web.UI.WebControls.TextBox image;
+
+		protected System.Web.UI.WebControls.TextBox uid;
+		protected System.Web.UI.WebControls.TextBox Fname;
+		protected System.Web.UI.WebControls.TextBox Lname;
+		protected System.Web.UI.WebControls.TextBox Uname;
+		protected System.Web.UI.WebControls.TextBox Pass;
+		protected System.Web.UI.WebControls.TextBox type;
 	}
 }
